@@ -16,6 +16,7 @@ Links: [[Final Year MOC]]
 - [[CSU44099 Final Year Project Outline]]
 - [[CSU44099 Final Year Project Lectures]]
 
+[[Project Options]]
 ## Assignments
 ```dataview
 table deadline

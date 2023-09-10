@@ -27,8 +27,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Final Year MOC.md",
-                "mode": "preview",
+                "file": "Project Options.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -40,7 +40,7 @@
               "type": "markdown",
               "state": {
                 "file": "CSU44099 Final Year Project.md",
-                "mode": "source",
+                "mode": "preview",
                 "source": true
               }
             }
@@ -93,24 +93,10 @@
             }
           }
         ]
-      },
-      {
-        "id": "e7053661920da402",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "5cdc76f11351e04c",
-            "type": "leaf",
-            "state": {
-              "type": "graph",
-              "state": {}
-            }
-          }
-        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 260.5
   },
   "right": {
     "id": "89995dc4cddbad2e",
@@ -126,6 +112,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Project Options.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -142,6 +129,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Project Options.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -163,7 +151,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Project Options.md"
+              }
             }
           }
         ]
@@ -184,11 +174,13 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "5cdc76f11351e04c",
+  "active": "db1aaa250b7039d8",
   "lastOpenFiles": [
-    "Final Year MOC.md",
-    "Templates/Course Template.md",
     "CSU44099 Final Year Project.md",
+    "Templates/Course Template.md",
+    "Templates/Templates.md",
+    "Final Year MOC.md",
+    "Project Options.md",
     "CSU44053 Computer Vision.md",
     "CSU44052 Computer Graphics.md",
     "CSU44051 Human Factors.md",
