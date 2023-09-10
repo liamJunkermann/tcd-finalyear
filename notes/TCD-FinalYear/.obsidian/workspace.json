@@ -1,0 +1,215 @@
+{
+  "main": {
+    "id": "0d0e9170d344edcc",
+    "type": "split",
+    "children": [
+      {
+        "id": "5b29ed05cc186063",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "d2e4b7287a0e4876",
+            "type": "leaf",
+            "pinned": true,
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Final Year MOC.md",
+                "mode": "source",
+                "source": false
+              },
+              "pinned": true
+            }
+          },
+          {
+            "id": "db1aaa250b7039d8",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Final Year MOC.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "22fd6635d2668768",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSU44099 Final Year Project.md",
+                "mode": "source",
+                "source": true
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "5559c54232144556",
+    "type": "split",
+    "children": [
+      {
+        "id": "d591eedcc9b21968",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "32dadaff0cbf705c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "7ca540e6570a29ca",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3fa5e108c6c9b4a8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      },
+      {
+        "id": "e7053661920da402",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "5cdc76f11351e04c",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "89995dc4cddbad2e",
+    "type": "split",
+    "children": [
+      {
+        "id": "f597f835098b9778",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "a6e1767c8769a980",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "101b52bfcf01411e",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "2fa551bedb6da6f9",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "aec753b9538edb7e",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "templater-obsidian:Templater": false
+    }
+  },
+  "active": "5cdc76f11351e04c",
+  "lastOpenFiles": [
+    "Final Year MOC.md",
+    "Templates/Course Template.md",
+    "CSU44099 Final Year Project.md",
+    "CSU44053 Computer Vision.md",
+    "CSU44052 Computer Graphics.md",
+    "CSU44051 Human Factors.md",
+    "CSU44000 Internet Applications.md",
+    "CSU33062 Advanced Computational Linguistics.md",
+    "CSU44053 Lecture Slides/CSU44053-Introduction.pdf",
+    "Computer Vision Outline.md",
+    "CSU44053 Lecture Slides/CSU44053-Images.pdf",
+    "CSU44053 Lecture Slides/CSU44053-Images-Extra Slides.pdf",
+    "CSU44053 Lecture Slides",
+    "Pasted image 20230910083628.png",
+    "Assignments/Intro Lab.md",
+    "Computer Vision Lectures.md",
+    "Computer Vision Prelecture Notes.md",
+    "Templates/Note Template.md",
+    "CompVis Lecture 1.md",
+    "Computer Vision Lecture 1.md",
+    "Untitled.md",
+    "Phys.md",
+    "Templates/Assignments Template.md",
+    "Templates",
+    "Assignments"
+  ]
+}
