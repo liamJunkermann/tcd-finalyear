@@ -4,15 +4,15 @@ Lecturer:
   - Martin Emms
 tags:
   - course
-code: CSU33062
+code: CSU44062
 title: Advanced Computational Linguistcs
 ---
 Links: [[Final Year MOC]]
-# CSU33062 Advanced Computational Linguistics
+# CSU44062 Advanced Computational Linguistics
 
 ## Course Outlines
-- [[CSU33062 Advanced Computational Linguistics Outline]]
-- [[CSU33062 Advanced Computational Linguistics Lectures]]
+- [[CSU44062 Advanced Computational Linguistics Outline]]
+- [[CSU44062 Advanced Computational Linguistics Lectures]]
 
 ## Assignments
 ```dataview

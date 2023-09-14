@@ -27,26 +27,46 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Project Options.md",
+                "file": "CSU44000 Internet Applications.md",
+                "mode": "preview",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "39e5be3db16941fe",
+            "type": "leaf",
+            "state": {
+              "type": "graph",
+              "state": {}
+            }
+          },
+          {
+            "id": "9a2ccc626af25878",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSU44000 Internet Applications Lecture Notes/Lecture 1.md",
                 "mode": "source",
                 "source": false
               }
             }
           },
           {
-            "id": "22fd6635d2668768",
+            "id": "a54a4c537799eb27",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSU44099 Final Year Project.md",
-                "mode": "preview",
-                "source": true
+                "file": "CSU44051 Human Factors Lecture Notes/Lecture 2.md",
+                "mode": "source",
+                "source": false
               }
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 4
       }
     ],
     "direction": "vertical"
@@ -96,7 +116,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 260.5
+    "width": 402.5,
+    "collapsed": true
   },
   "right": {
     "id": "89995dc4cddbad2e",
@@ -112,7 +133,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Project Options.md",
+                "file": "CSU44051 Human Factors Lecture Notes/Lecture 2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -129,7 +150,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Project Options.md",
+                "file": "CSU44051 Human Factors Lecture Notes/Lecture 2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -152,7 +173,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Project Options.md"
+                "file": "CSU44051 Human Factors Lecture Notes/Lecture 2.md"
               }
             }
           }
@@ -174,34 +195,43 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "db1aaa250b7039d8",
+  "active": "a54a4c537799eb27",
   "lastOpenFiles": [
+    "CSU44099 Final Year Project Notes/Project Options.md",
+    "CSU44062 Computational Linguistics Slides/probs_intro_part_one_slides.pdf",
+    "CSU44051 Human Factors Lecture Notes/Lecture 2.md",
+    "CSU44062 Advanced Computational Linguistics Lectures/Lecture 1.md",
+    "CSU44062 Computational Linguistics Slides/probs_intro_part_two_slides.pdf",
+    "CSU44062 Computational Linguistics Slides/CSU44000 Internet Applications Lectures.pdf",
+    "CSU44062 Computational Linguistics Slides/Unconfirmed 789851.crdownload",
+    "CSU44062 Computational Linguistics Slides/Unconfirmed 426674.crdownload",
+    "CSU44062 Computational Linguistics Slides",
+    "CSU44062 Advanced Computational Linguistics.md",
+    "CSU44062 Advanced Computational Linguistics Lectures",
+    "CSU44062 Advanced Computational Linguistics Lecture Notes/Untitled.md",
+    "CSU44052 Computer Graphics Lectures/Lecture 1.md",
+    "CSU44062 Advanced Computational Linguistics Lecture Notes",
+    "CSU44000 Internet Applications Lecture Slides/W1L1_ApplicationsIntro.pdf",
+    "CSU44051 Human Factors Lecture Notes/Lecture 1.md",
+    "CSU44052 Computer Graphics Lectures",
     "CSU44099 Final Year Project.md",
-    "Templates/Course Template.md",
-    "Templates/Templates.md",
-    "Final Year MOC.md",
-    "Project Options.md",
-    "CSU44053 Computer Vision.md",
-    "CSU44052 Computer Graphics.md",
     "CSU44051 Human Factors.md",
-    "CSU44000 Internet Applications.md",
-    "CSU33062 Advanced Computational Linguistics.md",
-    "CSU44053 Lecture Slides/CSU44053-Introduction.pdf",
+    "CSU44051.md",
+    "[Big.md",
+    "Assignments/Computer Vision Week 1.md",
+    "CSU44053 Computer Vision.md",
     "Computer Vision Outline.md",
-    "CSU44053 Lecture Slides/CSU44053-Images.pdf",
-    "CSU44053 Lecture Slides/CSU44053-Images-Extra Slides.pdf",
-    "CSU44053 Lecture Slides",
-    "Pasted image 20230910083628.png",
-    "Assignments/Intro Lab.md",
-    "Computer Vision Lectures.md",
-    "Computer Vision Prelecture Notes.md",
-    "Templates/Note Template.md",
-    "CompVis Lecture 1.md",
-    "Computer Vision Lecture 1.md",
     "Untitled.md",
-    "Phys.md",
-    "Templates/Assignments Template.md",
-    "Templates",
-    "Assignments"
+    "CSU44000 Internet Applications Lecture Notes/Lecture 1.md",
+    "CSU44000 Internet Applications.md",
+    "**Web Frameworks**.md",
+    "Javascript.md",
+    "CSU44000 Internet Applications Lectures.md",
+    "2023-09-11.md",
+    "Computer Vision Lectures.md",
+    "Final Year MOC.md",
+    "Templates/Course Template.md",
+    "CSU44052 Computer Graphics.md",
+    "PastedImages/Pasted image 20230910083628.png"
   ]
 }
