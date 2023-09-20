@@ -17,6 +17,20 @@ ___
 - [Khurshid Ahmad](mailto:kahmad@tcd.ie)
 - [Jonathan Dukes](mailto:jdukes@scss.tcd.ie)
 
+# [[Personal Project - ML to Go fast]]
+- Creating custom erg score
+	- Using rowing data (start with my own)
+	- Generating exercise score for ergs
+		> Illness/Injury prevention or test projections
+		- Erg data output
+		- Neural Network to score ergs
+		- Some kind of fitness score, correlating different pieces of data
+		- Using RPE/HR/Watts
+		- Start w historical scoring, potentially generate realtime feedback
+- Email:
+- Using erg and personal health data (HR, potentially morning HRV)
+- Using this data to either predict performance/suggest training plan adjustments
+
 ___
 Created: 2023-09-10
 
