@@ -33,7 +33,7 @@ Shading and Materials
 		- Gouraud Shading (implemented to improve the smooth transitions of the color on round objects)
 		- Phong Shading (an interpolation technique for surface shading)
 
-
+- Cross Product Stuff **review**
 
 ___
 Created: 2023-09-13
