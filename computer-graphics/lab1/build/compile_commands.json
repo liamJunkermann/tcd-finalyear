@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/liam/Documents/dev/tcd-finalyear/computer-graphics/lab1/build",
+  "command": "/usr/bin/clang++   -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -o CMakeFiles/Lab1.dir/main.cpp.o -c /Users/liam/Documents/dev/tcd-finalyear/computer-graphics/lab1/main.cpp",
+  "file": "/Users/liam/Documents/dev/tcd-finalyear/computer-graphics/lab1/main.cpp"
+}
+]

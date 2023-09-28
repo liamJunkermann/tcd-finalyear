@@ -1,0 +1,9 @@
+# Target labels
+ Main
+ opencv_gapi
+ Sample
+# Source files and their labels
+/Users/liam/Documents/dev/tcd-finalyear/computer-vision/opencv/modules/gapi/samples/infer_ssd_onnx.cpp
+ Main
+ opencv_gapi
+ Sample
