@@ -1,0 +1,4 @@
+!glm/glm.hpp
+!glm/gtc/matrix_transform.hpp
+!glm/gtc/type_ptr.hpp
+glm/
