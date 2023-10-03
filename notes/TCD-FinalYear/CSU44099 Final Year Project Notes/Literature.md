@@ -21,12 +21,26 @@ ___
 > On this basis, the mathematical structure allows for a precise determination of optimal sequence of training doses that would enhance the greatest athletic performance, at a given time point.
 > Through ensemble learning methods such as stacking, machine-learning approaches are not alternatives to Fitness-Fatigue models but rather a way to improve their predictive capability while preserving expert information in the modelling.
 [Modelling Training Adaptation in Swimming Using Artificial Neural Network Geometric Optimisation](https://pubmed.ncbi.nlm.nih.gov/31963218/)
+- Focused on modelling of training loads in swimmers based on RPE and External Load (distance)
+- Using "Modelling + Prediction..." and "Modelling athletic Training..." as a basis but using ANN Geometric Optimisation
 [Monitoring the Heart Rate Variability Responses to Training Loads in Competitive Swimmers Using a Smartphone Application and the Banister Impulse-Response Model](https://pubmed.ncbi.nlm.nih.gov/33561815/)
 [Stacked Generalisation: An Introduction to Super Learning](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6089257)
 [Stacked Generalisation (1992)](https://www.sciencedirect.com/science/article/abs/pii/S0893608005800231)
 [The impact of different training load quantification and modelling methodologies on performance predictions in elite swimmers](https://www.tandfonline.com/doi/pdf/10.1080/17461391.2020.1719211)
+[Polarised Training is not optimal for endurance athletes](https://www.sportsmith.co/reviews/march-2022/polarized-training-is-not-optimal-for-endurance-athletes/)
+- "Overfitting" training?
+[Training Implications: Physiology of Rowing](https://teaching.shu.ac.uk/hwb/sport/techandinnov/showcase0809/daniel_grant/science_training.html)
+[Modelling and prediction of competitive performance in swimming upon neural networks](https://www.tandfonline.com/doi/abs/10.1080/17461390200072201)
+[[Haar2011.pdf|Analysis and prediction of training effects: multivariate time series analysis with artificial neural networks]]
+[Modelling athletic training and performance : a hybrid artificial neural network ensemble approach]((https://doi.org/10.26191/vept-f103)
+- Using ANNs to model cycling training
+	- Power-endurance sport, might be able to use the same methods?
+[Modeling and prediction of competitive performance in swimming upon neural networks](https://doi.org/10.1080/17461390200072201)
+[Systems modelling of the relationship between training and performance](https://doi.org/10.2165/00007256-200333140-00003)
 
-
+I need to find:
+Banister, E. W., Calvert, T. W., Savage, M. V., & Bach, T. (1975). A systems model of training for athletic performance. Aust. J. Sports Med, 7, 57–61.
+- this seems to be the basis for most of the TRIMP (Training Impulse Response) modelling thats started all this exercise modelling stuff
 ___
 Created: 2023-09-25
 

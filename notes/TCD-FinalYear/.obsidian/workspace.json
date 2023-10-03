@@ -37,39 +37,41 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSU44099 Final Year Project Notes/Personal Project - ML to Go fast.md",
+                "file": "CSU44051 Human Factors Lecture Notes/Tutorial 1.md",
                 "mode": "source",
+                "backlinks": true,
                 "source": false
               }
             }
           },
           {
-            "id": "e1d469ccf4b7582b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSU44099 Final Year Project Notes/Literature.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          }
-        ],
-        "currentTab": 2
-      },
-      {
-        "id": "f817d3495e512502",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "d9a8679345e1df2b",
+            "id": "d50f5adf014b33c5",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "CSU44053 Computer Vision Lecture Notes/Vision Lecture 4.md",
                 "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ],
+        "currentTab": 3
+      },
+      {
+        "id": "fdbfd07472b2ba63",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e1d469ccf4b7582b",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "CSU44053 Computer Vision Lecture Notes/Vision Lecture 5.md",
+                "mode": "source",
+                "backlinks": false,
                 "source": false
               }
             }
@@ -140,7 +142,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSU44099 Final Year Project Notes/Personal Project - ML to Go fast.md",
+                "file": "CSU44053 Computer Vision Lecture Notes/Vision Lecture 5.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -157,7 +159,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSU44099 Final Year Project Notes/Personal Project - ML to Go fast.md",
+                "file": "CSU44053 Computer Vision Lecture Notes/Vision Lecture 5.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -180,7 +182,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSU44099 Final Year Project Notes/Personal Project - ML to Go fast.md"
+                "file": "CSU44053 Computer Vision Lecture Notes/Vision Lecture 5.md"
               }
             }
           },
@@ -212,13 +214,19 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "189107fa4914206e",
+  "active": "e1d469ccf4b7582b",
   "lastOpenFiles": [
-    "CSU44099 Final Year Project Notes/Data Collection.md",
-    "CSU44099 Final Year Project Notes/Personal Project - ML to Go fast.md",
     "CSU44053 Computer Vision Lecture Notes/Vision Lecture 4.md",
-    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 3.md",
+    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 5.md",
+    "CSU44051 Human Factors Lecture Notes/The Group Takeaway Ordering Dilemma.md",
+    "CSU44051 Human Factors Lecture Notes/Tutorial 1.md",
     "CSU44099 Final Year Project Notes/Literature.md",
+    "CSU44099 Final Year Project Notes/Haar2011.pdf",
+    "CSU44099 Final Year Project Notes/ModellingAthleticTrainingAndPerformance.pdf",
+    "CSU44099 Final Year Project Notes/Unconfirmed 675216.crdownload",
+    "CSU44099 Final Year Project Notes/Personal Project - ML to Go fast.md",
+    "CSU44099 Final Year Project Notes/Data Collection.md",
+    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 3.md",
     "CSU44099 Final Year Project Notes/s40798-022-00426-x.pdf",
     "CSU44099 Final Year Project Notes/Scandinavian Med Sci Sports - 2004 - Seiler.pdf",
     "CSU44062 Computational Linguistics Lecture Slides/4_cond_indpt_example_slides.pdf",
@@ -226,9 +234,6 @@
     "CSU44062 Computational Linguistics Lecture Slides/3_parameter_estimation_part_one_slides.pdf",
     "CSU44062 Computational Linguistics Lecture Slides/2_probs_intro_part_two_slides.pdf",
     "CSU44062 Computational Linguistics Lecture Slides/1_probs_intro_part_one_slides.pdf",
-    "CSU44062 Computational Linguistics Lecture Slides/probs_intro_part_two_slides.pdf",
-    "CSU44062 Computational Linguistics Lecture Slides/probs_intro_part_one_slides.pdf",
-    "CSU44062 Computational Linguistics Lecture Slides/parameter_estimation_part_one_slides.pdf",
     "CSU44062 Advanced Computational Linguistics Lecture Notes/Lecture 1.md",
     "CSU44052 Computer Graphics Lectures/Lecture 2.md",
     "CSU44052 Computer Graphics Lectures/Lecture 1.md",
@@ -247,9 +252,6 @@
     "CSU44053 Computer Vision Outline.md",
     "CSU44053 Computer Vision Lectures.md",
     "CSU44000 Internet Applications Lectures.md",
-    "CSU44053 Computer Vision.md",
-    "CSU44099 Final Year Project Notes/Project Options.md",
-    "CSU44051 Human Factors Lecture Notes/Lecture 1.md",
     "PastedImages/Pasted image 20230910083628.png"
   ]
 }
