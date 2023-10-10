@@ -13,7 +13,7 @@ ___
 
 [Enhancing Individual Sports Training through Artificial Intelligence: A Comprehensive Review](https://www.opastpublishers.com/open-access-articles/enhancing-individual-sports-training-through-artificial-intelligence-a-comprehensive-review.pdf)
 [Enhancing individual sports training through AI](https://www.linkedin.com/pulse/enhancing-individual-sports-training-through-review-oliver-bodemer/)
-[From Heart-Rate Data to Training Quantification: A Comparison of 3 Methods of Training-Intensity Analysi](https://journals.humankinetics.com/view/journals/ijspp/9/1/article-p100.xml)
+[From Heart-Rate Data to Training Quantification: A Comparison of 3 Methods of Training-Intensity Analysis](https://journals.humankinetics.com/view/journals/ijspp/9/1/article-p100.xml)
 [[Scandinavian Med Sci Sports - 2004 - Seiler.pdf|Quantifying training intensity distribution in elite endurance athletes: is there evidence for an “optimal” distribution?]]
 	https://onlinelibrary.wiley.com/doi/full/10.1111/j.1600-0838.2004.00418.x
 [[s40798-022-00426-x.pdf|The Use of Fitness-Fatigue Models for Sport Performance Modelling: Conceptual Issues and Contributions from Machine-Learning]]
@@ -32,13 +32,14 @@ ___
 [Training Implications: Physiology of Rowing](https://teaching.shu.ac.uk/hwb/sport/techandinnov/showcase0809/daniel_grant/science_training.html)
 [Modelling and prediction of competitive performance in swimming upon neural networks](https://www.tandfonline.com/doi/abs/10.1080/17461390200072201)
 [[Haar2011.pdf|Analysis and prediction of training effects: multivariate time series analysis with artificial neural networks]]
-[Modelling athletic training and performance : a hybrid artificial neural network ensemble approach]((https://doi.org/10.26191/vept-f103)
+[Modelling athletic training and performance : a hybrid artificial neural network ensemble approach](https://doi.org/10.26191/vept-f103) - australian phd thesis
 - Using ANNs to model cycling training
 	- Power-endurance sport, might be able to use the same methods?
 [Modeling and prediction of competitive performance in swimming upon neural networks](https://doi.org/10.1080/17461390200072201)
 [Systems modelling of the relationship between training and performance](https://doi.org/10.2165/00007256-200333140-00003)
 
 I need to find:
+Librarian email 
 Banister, E. W., Calvert, T. W., Savage, M. V., & Bach, T. (1975). A systems model of training for athletic performance. Aust. J. Sports Med, 7, 57–61.
 - this seems to be the basis for most of the TRIMP (Training Impulse Response) modelling thats started all this exercise modelling stuff
 ___
