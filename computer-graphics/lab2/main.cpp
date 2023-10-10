@@ -1,129 +1,141 @@
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-#include <glm/gtc/type_ptr.hpp>
 
 #include "shader.h"
 
 #include <iostream>
 
+// Macro for indexing vertex buffer
+#define BUFFER_OFFSET(i) ((char *)NULL + (i))
+
+using namespace std;
+typedef glm::vec3 vec3;
+typedef glm::vec4 vec4;
+
 void framebuffer_size_callback(GLFWwindow *window, int width, int height);
 void processInput(GLFWwindow *window);
 
-// settings
 const unsigned int SCR_WIDTH = 800;
 const unsigned int SCR_HEIGHT = 600;
+
+// Shader shader1("shader.vs", "shader.fs");
+GLuint ShaderProgramID1;
+GLuint VBO1;
+GLuint VBO2;
+
+#pragma region VBO_FUNCTIONS
+GLuint generateObjectBuffer(GLuint VBO, GLfloat vertices[], GLuint numVertices, GLfloat colors[] = NULL)
+{
+    glGenBuffers(1, &VBO);
+    // In OpenGL, we bind (make active) the handle to a target name and then execute commands on that target
+    // Buffer will contain an array of vertices
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    // After binding, we now fill our object with data, everything in "Vertices" goes to the GPU
+    glBufferData(GL_ARRAY_BUFFER, numVertices * 7 * sizeof(GLfloat), NULL, GL_STATIC_DRAW);
+    // if you have more data besides vertices (e.g., vertex colours or normals), use glBufferSubData to tell the buffer when the vertices array ends and when the colors start
+    glBufferSubData(GL_ARRAY_BUFFER, 0, numVertices * 3 * sizeof(GLfloat), vertices);
+    if (colors != NULL)
+    {
+        glBufferSubData(GL_ARRAY_BUFFER, numVertices * 3 * sizeof(GLfloat), numVertices * 4 * sizeof(GLfloat), colors);
+    }
+    return VBO;
+}
+
+void linkCurrentBufferToShader(GLuint shaderProgramID, GLuint numVertices)
+{
+    GLuint positionID = glGetAttribLocation(shaderProgramID, "vPosition");
+    GLuint colorID = glGetAttribLocation(shaderProgramID, "vColor");
+
+    // position data
+    glEnableVertexAttribArray(positionID);
+    glVertexAttribPointer(positionID, 3, GL_FLOAT, GL_FALSE, 0, 0);
+    // color data
+    glEnableVertexAttribArray(colorID);
+    glVertexAttribPointer(colorID, 4, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(numVertices * 3 * sizeof(GLfloat)));
+}
+#pragma endregion VBO_FUNCTIONS
+
+void setup()
+{
+    // vertex setup
+    GLfloat vertices0[] = {-1.0f, -1.0f, 0.0f,
+                           1.0f, -1.0f, 0.0f,
+                           0.0f, 1.0f, 0.0f};
+    GLfloat vertices1[] = {-1.0f, 1.0f, 0.0f,
+                           1.0f, -1.0f, 0.0f,
+                           0.0f, 1.0f, 0.0f};
+    // Create a color array that identfies the colors of each vertex (format R, G, B, A)
+    GLfloat colours[] = {0.0f, 1.0f, 0.0f, 1.0f,
+                         1.0f, 0.0f, 0.0f, 1.0f,
+                         0.0f, 0.0f, 1.0f, 1.0f};
+    GLuint numVertices = 3;
+
+    unsigned int VAO;
+    glGenVertexArrays(1, &VAO);
+    glBindVertexArray(VAO);
+
+    VBO1 = generateObjectBuffer(VBO1, vertices0, numVertices, colours);
+    VBO2 = generateObjectBuffer(VBO2, vertices1, numVertices);
+    // build and compile shaders
+    Shader shader("shader1.vs", "shader1.fs");
+    ShaderProgramID1 = shader.ID;
+}
+
+void display(GLFWwindow *window)
+{
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glUseProgram(ShaderProgramID1);
+    glBindBuffer(GL_ARRAY_BUFFER, VBO1);
+    linkCurrentBufferToShader(ShaderProgramID1, 3);
+
+    // NB: Make the call to draw the geometry in the currently activated vertex buffer. This is where the GPU starts to work!
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+
+    // glBindBuffer(GL_ARRAY_BUFFER, VBO2);
+    // glDrawArrays(GL_TRIANGLES, 0, 3);
+    glfwPollEvents();
+    // put the stuff we've been drawing onto the display
+    glfwSwapBuffers(window);
+}
 
 int main()
 {
     // glfw: initialize and configure
     // ------------------------------
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
 #ifdef __APPLE__
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 2);
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
+    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 #endif
 
     // glfw window creation
-    // --------------------
-    GLFWwindow *window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+    GLFWwindow *window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "OpenGL", NULL, NULL);
     if (window == NULL)
     {
-        std::cout << "Failed to create GLFW window" << std::endl;
+        fprintf(stderr, "failed to create GLFW window");
         glfwTerminate();
         return -1;
     }
     glfwMakeContextCurrent(window);
     glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
-    // glad: load all OpenGL function pointers
-    // ---------------------------------------
+    // glad: load all OpenGL function points
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
-        std::cout << "Failed to initialize GLAD" << std::endl;
+        fprintf(stderr, "failed to init glad");
         return -1;
     }
 
-    // build and compile our shader program
-    // ------------------------------------
-    Shader ourShader("shader.vs", "shader.fs"); // you can name your shader files however you like
-
-    // set up vertex data (and buffer(s)) and configure vertex attributes
-    // ------------------------------------------------------------------
-    float vertices[] = {
-        // positions         // colors
-        0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,  // bottom right
-        -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, // bottom left
-        0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f    // top
-    };
-
-    unsigned int VBO, VAO;
-    glGenVertexArrays(1, &VAO);
-    glGenBuffers(1, &VBO);
-    // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
-    glBindVertexArray(VAO);
-
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-
-    // position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void *)0);
-    glEnableVertexAttribArray(0);
-    // color attribute
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void *)(3 * sizeof(float)));
-    glEnableVertexAttribArray(1);
-
-    // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-    // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
-    // glBindVertexArray(0);
-
-    // render loop
-    // -----------
+    setup();
     while (!glfwWindowShouldClose(window))
     {
-
-        glm::mat4 trans = glm::mat4(1.0f);
-        // trans = glm::translate(trans, glmwa::vec3(0.25f, -0.25f, 0.0f));
-        // trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(1.0f, 0.0f, 0.0f));
-
-        // input
-        // -----
-        processInput(window);
-        if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS)
-        {
-            trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 1.0f, 0.0f));
-        }
-
-        // render
-        // ------
-        glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT);
-
-        // render the triangle
-        ourShader.use();
-        unsigned int transformLoc = glGetUniformLocation(ourShader.ID, "transform");
-        glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(trans));
-
-        glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
-        // -------------------------------------------------------------------------------
-        glfwSwapBuffers(window);
-        glfwPollEvents();
+        display(window);
     }
 
-    // optional: de-allocate all resources once they've outlived their purpose:
-    // ------------------------------------------------------------------------
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
-
-    // glfw: terminate, clearing all previously allocated GLFW resources.
-    // ------------------------------------------------------------------
     glfwTerminate();
     return 0;
 }
