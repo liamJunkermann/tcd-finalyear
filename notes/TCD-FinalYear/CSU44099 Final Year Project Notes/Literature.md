@@ -1,7 +1,7 @@
 Links: [[Personal Project - ML to Go fast]]
 Tags:
 ___
-# Literature
+# Sports Performance (and ML) Literature
 [Monitoring of Performance and Training in Rowing](https://link.springer.com/article/10.2165/00007256-200535070-00005)
 !! [Running Smart with Machine Learning and Strava](https://towardsdatascience.com/running-smart-with-machine-learning-and-strava-9ba186decde0)
 - Essentially showing this can be done and has been done before with running
