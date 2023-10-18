@@ -1,0 +1,44 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+%% Bibliographical stuff
+\usepackage[]{cite}
+%% Document size
+% include showframe as an option if you want to see the boxes
+\usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm,headheight=16pt]{geometry}
+\setlength{\marginparwidth}{2cm}
+%% Useful packages
+\usepackage{amsmath}
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage[pdftex]{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{hyperxmp}
+\usepackage{caption} % if no caption, no colon
+\usepackage{sfmath} %use sans-serif in the maths sections too
+\usepackage[parfill]{parskip}    % Begin paragraphs with an empty line rather than an indent
+\usepackage{setspace} % to permit one-and-a-half or double spacing
+\usepackage{enumerate} % fancy enumerations like (i) (ii) or (a) (b) and suchlike
+\usepackage{booktabs} % To thicken table lines
+\usepackage{fancyhdr}
+\usepackage{xcolor} % to get TCD colour on headings
+\usepackage{lmodern}
+\usepackage{tcolorbox}
+% \numberwithin{equation}{chapter} %HS edit for (chapter.equation)
+\pagestyle{empty} % Embrace simplicity!
+
+\definecolor{tcd_blue}{RGB}{5, 105, 185}
+\renewcommand{\familydefault}{\sfdefault} %use the sans-serif font as default
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection.}{1em}{}
+\newcommand{\authorname}{Liam Junkermann}
+\newcommand{\deadline}{April 2024}
+
+\begin{document}
+
+\include{info-sheet/info-sheet}
+
+\end{document}

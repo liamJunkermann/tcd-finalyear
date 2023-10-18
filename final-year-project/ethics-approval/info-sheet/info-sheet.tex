@@ -1,44 +1,5 @@
-\documentclass[a4paper,12pt]{article}
-
-\usepackage[utf8]{inputenc}
-\usepackage[english]{babel}
-
-%% Bibliographical stuff
-\usepackage[]{cite}
-%% Document size
-% include showframe as an option if you want to see the boxes
-\usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm,headheight=16pt]{geometry}
-\setlength{\marginparwidth}{2cm}
-%% Useful packages
-\usepackage{amsmath}
-\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
-\usepackage[pdftex]{graphicx}
-\usepackage[colorinlistoftodos]{todonotes}
-\usepackage[colorlinks=true, allcolors=black]{hyperref}
-\usepackage{hyperxmp}
-\usepackage{caption} % if no caption, no colon
-\usepackage{sfmath} %use sans-serif in the maths sections too
-\usepackage[parfill]{parskip}    % Begin paragraphs with an empty line rather than an indent
-\usepackage{setspace} % to permit one-and-a-half or double spacing
-\usepackage{enumerate} % fancy enumerations like (i) (ii) or (a) (b) and suchlike
-\usepackage{booktabs} % To thicken table lines
-\usepackage{fancyhdr}
-\usepackage{xcolor} % to get TCD colour on headings
-\usepackage{lmodern}
-% \numberwithin{equation}{chapter} %HS edit for (chapter.equation)
-\pagestyle{empty} % Embrace simplicity!
-
-\definecolor{tcd_blue}{RGB}{5, 105, 185}
-\renewcommand{\familydefault}{\sfdefault} %use the sans-serif font as default
-
-\usepackage{titlesec}
-\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection.}{1em}{}
-\newcommand{\authorname}{Liam Junkermann}
-\newcommand{\deadline}{April 2024}
-
-\begin{document}
 \begin{center}
-    \includegraphics[height=3cm]{Trinity_RGB_transparent_main.png}\\
+    \includegraphics[height=3cm]{info-sheet/Trinity_RGB_transparent_main.png}\\
     {\large\textbf{Information Sheet for Participants}}\\
     \textit{Title of Research Project:}\\
     \textbf{Machine Learning to go \emph{Nyoom}:}\\
@@ -63,29 +24,29 @@ Please ensure that you read all information below before deciding to participate
 
 You are under no obligation to participate in this project. It is voluntary, and your decision to take part or otherwise will not result in any penalty against you.
 
-The sharing of data is optional. You can withdraw from the project at any time before the project deadline in \deadline, even after it has started. After this time, it will no longer be possible to exclude your data.
+The sharing of data is optional. You can withdraw from the project at any time before the project submission in \deadline, even after it has started. After the submission, it will no longer be possible to exclude your data.
 
-All information gathered as part of this project will be obfuscated when presented as results. Participant names will be obfuscated, with code names being used instead of the participants' own names. The research will maintain a translation key to facilitate exclusion of participant's data from the project if requested or to provide feedback which may be the result of a model which has been trained by the researcher. All information pertaining to this project will be removed from the researcher's personal devices and cloud storage once the results of the report have been ratified by the exam board. At this point, the researcher will delete all data gathered for the purposes of this project unless otherwise requested by participants.
+All information gathered as part of this project will be pseudonymised when presented as results. Participant names will be pseudonymised, with code names being used instead of the participants' own names. The researcher will securely maintain a translation key to facilitate exclusion of participant's data from the project if requested or to provide feedback which may be the result of a model which has been trained by the researcher. All information pertaining to this project will be removed from the researcher's personal devices and cloud storage once the results of the report have been ratified by the exam board. At this point, the researcher will delete all data gathered for the purposes of this project unless otherwise requested by participants.
 
 \section*{What is the purpose of this project?}
-Quantifying the effect of training on the body is something which trained athletes try to do daily to make their training as efficient as possible to hit their fitness and performance goals. As technology has evolved, different systems and approaches to quantify things load and recovery have been taken. Original models and systems used a linear approach to model these biological processes and adaptations. The formative model for modelling human performance, developed by Eric Bannister, has been supported and built upon many times since its publication in 1975. This model is, unfortunately, incomplete due to its linear nature. Machine Learning has been introduced to the field of study in an attempt to increase both the accuracy of performance modelling, and the number of variables which can be used in the model. This project aims to develop a model which can be used to quantify training load and recovery, and predict performance based on the available training and recovery data. The goal is to make participants' individual training more effective to drive stronger performances.
-By participating in this project, you are contributing to the completion of th researcher's undergraduate degree.
+Quantifying the effect of training on the body is something which trained athletes try to do daily to make their training as efficient as possible to hit their fitness and performance goals. As technology has evolved, different systems and approaches to quantify metrics like load and recovery have been developed. Original models and systems used a linear approach to model these biological processes and adaptations. The formative model for modelling human performance, developed by Eric Bannister, has been supported and built upon many times since its publication in 1975. This model is, unfortunately, incomplete due to its linear nature. Machine Learning has been introduced to the field of study in an attempt to increase both the accuracy of performance modelling, and the number of variables which can be used in the model. This project aims to develop a model which can be used to quantify training load and recovery, and predict performance based on the available training and recovery data. The goal is to make participants' individual training more effective to drive stronger performances.
+By participating in this project, you are contributing to the completion of the researcher's undergraduate degree.
 \section*{Who is organising the project?}
 \authorname~is the principle researcher and is receiving academic supervision from Dr.~Lucy Hederman of the School of Computer Science and Statistics in Trinity College Dublin.
 \section*{Why am I being asked to partake in this project}
-You are being asked to partake in this project as you are a rower with intentions to compete at a National level this season. As a result, you will be committing to 8-12+ training sessions per week where consistent data may be collected, this paired with semi-regular benchmark tests (eg. 6k r20, 30min r20, 6k Open, 2k Open), can provide the researcher with different options to measure model success and provide feedback to you, the athlete.
+You are being asked to partake in this project as you are a rower with intentions to compete, at a minimum, at a national level this season. As a result, you will be committing to 8-12+ training sessions per week where consistent data may be collected, this paired with semi-regular benchmark tests (eg. 6k r20, 30min r20, 6k Open, 2k Open), can provide the researcher with different options to measure model success and provide feedback to you, the athlete.
 \section*{What will my role in the project entail?}
-To participate in this project, you will be asked to provide data through various pipelines built by the researcher. The researcher will be collecting any and all training and recovery data you might have available. Most of the data collection will happen through automatic API collection pipelines, but may also include manual entry through a training log.
+To participate in this project, you will be asked to provide data through various pipelines built by the researcher. The researcher will be collecting any and all training and recovery data you might have available from the time of joining until time of submission in \deadline. Most of the data collection will happen through automatic API collection pipelines, but may also include manual entry through a training log.
 \section*{What are the benefits of my taking part in this project?}
 By participating in this project, you are providing invaluable data to the researcher, which ultimately could benefit you in providing feedback on your training, and understanding which trends in your training produce stronger results.
 \section*{What are the risks in me taking part in this project?}
-There are no expected risks associated with taking part in this project. Agreeing or declining to participate in this project will not impact you in any way. Collected data will remain obfuscated and will be disposed of once the report has been submitted in \deadline, unless otherwise requested by participants.
+There are no expected risks associated with taking part in this project. Agreeing or declining to participate in this project will not impact you in any way. Collected data will remain pseudonymised and will be disposed of once the report has been ratified by the exam board, unless otherwise requested by participants.
 \section*{Will it cost me to take part of this project?}
 There are no monetary costs associated with participation in this project. There may be a small time commitment to setup data collection, and periodic check-ins for training related data, such as heart rate zones and the result of HP testing such as lactate or VO2 max testing.
 \section*{Is this project confidential?}
-This project is the researcher's final year project. All information collected for the purposes of this project will be treated with the strictest of confidence. Any data collected will be stored securely, obfuscated, and deleted from the researcher's personal devices and cloud storage, unless otherwise requested by participants, when the project is complete and has been ratified by the exam board.
+All information collected for the purposes of this project will be treated with the strictest of confidence. Any data collected will be stored securely, in an unidentifiable form, and deleted from the researcher's personal devices and cloud storage, unless otherwise requested by participants, when the project is complete and has been ratified by the exam board.
 
-Participants' names will be masked with code names being used instead of participants' own names before being presented as results. The researcher will securely maintain a translation key to facilitate the exclusion of a participant's data if requested or to provide feedback which may be the result of a model which has been trained by the researcher. No information will be shared with anyone other than the principal researcher in any manner that may be easily identifiable. All data will be stored securely for the duration of the project and will be deleted from teh researcher's personal devices and cloud storage, unless otherwise requested by the participant, once the study has concluded in \deadline and the project has been ratified by the exam board.
+Participants' names will be masked with code names being used instead of participants' own names before being presented as results \todo{figure out phrasing for not publishing data which can help determine a given training plan}. The researcher will securely maintain a translation key to facilitate the exclusion of a participant's data if requested or to provide feedback which may be the result of a model which has been trained by the researcher. No information will be shared with anyone other than the principal researcher in any manner that may be easily identifiable. All data will be stored securely for the duration of the project and will be deleted from the researcher's personal devices and cloud storage, unless otherwise requested by the participant, once the study has concluded in \deadline~and the project has been ratified by the exam board.
 \section*{Are there any conflicts of interest in this project?}
 This project forms part of the principle researcher's undergraduate degree in Integrated Computer Science at Trinity College Dublin. By participating in this project, you are contributing to the completion of this degree.
 \section*{Where can I get further information regarding this project?}
@@ -95,4 +56,3 @@ If you have any queries or concerns regarding this project now, or at any point 
 
 Thank you for taking the time to read this information sheet.
 
-\end{document}
