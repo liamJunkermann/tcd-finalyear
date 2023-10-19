@@ -1,0 +1,42 @@
+\begin{center}
+    \includegraphics[height=3cm]{info-sheet/Trinity_RGB_transparent_main.png}\\
+    {\Large\textbf{Outline of Research Proposal}}
+\end{center}
+
+\textbf{Title of Project}\\
+Machine Learning to go \textit{Nyoom}: Using Machine Learning to evaluate rowing training and predict training outcomes or performance
+
+\textbf{Dates and Duration}\\
+This project will run from ASAP until \deadline.
+
+\section*{Purpose and Academic Rationale}
+The purpose of this project is to develop a machine learning model which can quantify rowing training load more effectively to predict the resulting outcomes and performances from a certain training program. The formative Human Performance Model from 1975 relied on a linear model, only using Fitness and Fatigue as inputs. The linear model for human performance is inherently flawed as adaptations to training load are far more complex. Since then, technology has evolved to allow researchers to build more complex and effective models of human performance. The development in machine learning allows models to be trained on sports specific data to extrapolate what training plans work, and provide individualised feedback using the data available.
+
+At present, no tool like this exists for Rowing. Given the cardiovascular intensity of training, many strain models built for sports generally overestimate the strain, or fatigue, of a given training session. Additionally there is some disagreement about which approach to training is best. The most popular approaches being pyramidal or periodization. These approaches guide what percentage of time spent training should be spent in various heart rate zones.
+
+Rowing training is uniquely placed to be used to train a machine learning model. With countless hours spent on the rowing machine (erg) each week, most often with a heart rate monitor (HRM) connected, most pre-elite and elite athletes have granular, stroke to stroke, data about their training. Given the prevalence of using heart rate to train many athletes also wear heart rate monitors on the water, with some also using Stroke Coaches (GPS computers which various metrics on the water such as speed, stroke rate, in some cases power, and has the capability to connect to HRMs) to record distance, time, and speed. Given the time and energy commitment required for rowing many athletes also use fitness tracking wearables (eg. Polar Watches, Whoop Straps, etc.) to collect data about recovery and sleep. Considering this volume of data, a machine learning approach to analyse and provide feedback, and predictions, on a given training block or to help work to a given goal.
+\section*{Procedures of the Project}
+There will be two steps to the project
+\begin{enumerate}
+    \item \textbf{Data Collection}\\Participants will be asked to do a once-off sign up process which will enable automatic collection of their wearable and training data through the use of APIs. Participants may be asked to do weekly monitoring each week to provide supplemental data. The goal of the data collection step is to be as unintrusive to the athletes as possible. Their data will be collected and analysed on the researchers personal computer, before being transferred to cloud storage, in a pseudonymised format, to allow for processing in the machine learning step.
+    \item \textbf{Data Processing and Model Generation}\\Once a sufficient amount of data has been collected, the researcher will engage in processing the data and developing a model. Data will continue to be collected to continue add to the data available to the model. Any findings from the model will be released to the participants. The researcher will maintain a translation key securely on their local machine in order to provide this feedback, and in the event that a participant asks for their data to be deleted.
+\end{enumerate}
+\section*{Participants}
+The participants for this project will be recruited through word of mouth and text messages. The researcher is an active member of a Dublin senior rowing squad with friends and former teammates in other squads in Ireland and the United States of America who can be recruited for the project.  
+
+The criteria that a participant must meet in order to take part in this project:
+\begin{itemize}
+    \item Be at least 18 years old.
+    \item Be training for Rowing at least 8 times per week ($>$45 minutes per session)
+    \item Have competed at a minimum of national level
+\end{itemize}
+\section*{Debriefing Arrangements}
+All participants in this project will be debriefed through a written document explaining the process to them. If requested, participants will receive results of the project once the project is completed.
+\section*{Ethical Considerations}
+There are some ethical considerations which arise from the project with regards to participation, data collection and protection.
+\begin{description}
+    \item [Participation] Participation in this project is entirely voluntary. If a participant no longer feels comfortable sharing their data, they may withdraw at any time, even after the project has commenced, with all of their data being removed from the researchers personal device and cloud storage.
+    \item [Data Collection and Protection] All data collected is done through authorised APIs, secured with the participants log in and an API key provided to the researcher. The data is then processed to pseudonymised, by removing any names or user ids and replacing them with randomly generated keys for each participant. The data is then stored in an encrypted cloud storage provider. A translation key list will be stored securely and encrypted on the researchers personal device. The researcher is aware that some squads may have policies regarding the sharing of training data, all data provided to the researcher for the purposes of this project will only be accessed by the researcher and only de-pseudonymised on the request of the participant for the purposes of providing training feedback or to delete a participants data.
+\end{description}
+\section*{Legislation}
+All data gathered as part of this study will be held and maintained in accordance with the General Data Protection Regulation (GDPR). All participants will be anonymised before being included in results. Information gathered throughout the study will be stored securely, which only the researcher will have access to.
