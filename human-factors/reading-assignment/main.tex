@@ -1,0 +1,127 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fancyhdr} 
+\usepackage[]{cite}
+\usepackage{lastpage} 
+\usepackage{extramarks} 
+\usepackage{graphicx,color}
+\usepackage{anysize}
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[svgnames]{xcolor}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage[small]{titlesec}
+\usepackage[version=4]{mhchem}
+\usepackage{linegoal}
+
+
+\textwidth=6.5in
+\linespread{1.0} % Line spacing
+\renewcommand{\familydefault}{\sfdefault}
+
+% \titleformat{\section}
+% {\normalfont\bfseries}
+% {\thesection.}{0.75em}{}
+
+\titlespacing{\section}{0pt}{0pt}{0pt}
+
+%% includescalefigure:
+%% \includescalefigure{label}{short caption}{long caption}{scale}{filename}
+%% - includes a figure with a given label, a short caption for the table of contents and a longer caption that describes the figure in some detail and a scale factor 'scale'
+\newcommand{\includescalefigure}[5]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#4\linewidth]{#5}
+\captionsetup{width=.8\linewidth} 
+\caption[#2]{#3}
+\label{#1}
+\end{figure}
+}
+
+%% includefigure:
+%% \includefigure{label}{short caption}{long caption}{filename}
+%% - includes a figure with a given label, a short caption for the table of contents and a longer caption that describes the figure in some detail
+\newcommand{\includefigure}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics{#4}
+\captionsetup{width=.8\linewidth} 
+\caption[#2]{#3}
+\label{#1}
+\end{figure}
+}
+
+%%------------------------------------------------
+%% Parameters
+%%------------------------------------------------
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\authorName} % Top left header
+\chead{\moduleCode\ - \assignmentTitle} % Top center header
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\newcommand{\assignmentTitle}{Reading Assignment}
+\newcommand{\moduleCode}{CSU44051} 
+\newcommand{\moduleName}{Human Factors} 
+\newcommand{\authorName}{Liam Junkermann} 
+\newcommand{\authorID}{19300141}
+\newcommand{\reportDate}{\today}
+% \renewcommand{\abstractname}{Introduction}
+
+\title{
+    \vspace{-1in}
+    \begin{figure}[!ht]
+    \flushleft
+    \includegraphics[width=0.4\linewidth]{Trinity_RGB_transparent_main.png}
+    \end{figure}
+    \vspace{-0.5cm}
+    \hrulefill \\
+    \vspace{1cm}
+    \textmd{\textbf{\moduleCode\ \moduleName}}\\
+    \textmd{\textbf{\assignmentTitle}}\\
+    \textmd{\authorName\ - \authorID}\\
+    \textmd{\reportDate}\\
+    \vspace{0.5cm}
+    \hrulefill \\
+}
+\date{}
+\author{}
+\begin{document}
+AI-based Symptom Checkers (AISCs) have become incredibly popular recently, especially with the spread and development of Large Language Models (LLMs). The growing use of these AISCs in everyday healthcare practices raises many questions. This paper, "The Medical Authority of AI: A Study of AI-enabled Consumer-facing Health Technology", \cite{YOU_2021}, addresses how users perceive these apps, and which features and experiences improve a user perception of the app and its authority to make medical decisions and suggestions. 
+
+Trust and Authority are different, but related concepts. Authority has a "structural and sociotechnical property, distributed and embodied within organisational members". For important social causes where populations need to have more robust trust in a system or providers of the cause, organisations have been built to evaluate and validate providers, in this case, healthcare providers. The paper notes, "Healthcare consumers' medical authority perception and experience play an important role in whom and what venues they deem trustworthy and seek information from". The internet has allowed anyone to create and upload their version of medical advice, and if it is popular, search engines will begin to recommend that site more often, regardless if it is accurate medical advice, or not. Users must then be more conscious and weary of advice they find on the Internet, this is an issue many AISCs face and address. How can they prove that their service can give better advice than the first search result a user finds?
+
+This study focused on ASIC apps in China. The digital healthcare industry in China is rapidly growing, and with this many ASIC apps have been developed. There are 6 major apps, each with popular app store ratings and "developed either by hospitals or other for-profit companies backed by medical agencies"\cite[p.~4]{YOU_2021}. These AI symptom checkers use big data sets to analyse and triage symptoms. Each of the apps is embedded with AI technology which can enhance the data analysis. One app, Zuoshou Doctor uses Deep learning and a conversational user interface. Users of each app sign up, with varying degrees of detail about the user collected (Age, Gender, Height, Weight, and Medical History). 
+
+The researchers are from China or the US conducting research to help increase the quality of health IT support systems at a lower cost. All the results collected were from Chinese users recruited through social media (WeChat Moments and Weibo). They were able to recruit 30 participants from "diverse backgrounds" in their 20s and 30s. These participants were interviewed for 30 minutes to 1 hour. Users were asked about their "demographic information, when they started [using] ASIC apps, and how they started [using] ASIC apps" \cite{YOU_2021}[p.~5]. 
+
+The researchers found there were 4 main ways participants experienced and assessed medical authority. They are as follows
+\begin{description}
+    \item[Endorsements from Established Authorities] Respondents shared that they chose to use ASIC apps over search engines, like Baidu, because there was an expectation that the results would be more tailored as the app had been purpose-built as a symptom checker. Respondents also shared that the maker of a given app drove them to select one app over another. Apps leveraging the social standing and perceived authority of a developer or hospital allow users to give more medical authority to an AI tool.
+    \item[Data Provenance and Transparency] The source and depth of a given app's data were factors in the perceived authority of a given app. One respondent shared that when the app disclosed the number of hospitals, and records, used to train the AI models, it gave the app more credibility and standing in their eyes. More transparency led to more trust. Another respondent shared, though, that the source was more valuable than the quantity. They doubted that the apps would be able to access hospital records so the quality of the data was of more interest to them than the quantity. Machine Learning algorithms benefit from the quantity of data to fit models more effectively, but fitting a large quantity of data which is of little or no value results in a useless model. So both respondents' concerns are valid.
+    \item["Charismatic" Authority through Design Patterns] As with any human interface, design plays a massive role in a user's experience. This paper found that there were many points which might affect a user's perception of the medical authority of an app.
+    \begin{description}
+        \item[Input Design] Firstly, the ease of adding symptoms. Generally, when searching symptoms, a user would look for the primary symptom, and then attempt to add any additional symptoms. Users who found symptoms under titles they didn't expect (eg. runny nose under a nasal congestion category) began to question the authority of the AISC. In some cases, users had issues with the variety of symptoms available to enter.
+        \item[Question Design] The content and way apps asked follow-up questions led to friction and further doubts about the authority of AISCs. For example, if a user had already selected a symptom, being asked a question that resulted in them re-selecting that symptom was a source of frustration.
+    \end{description}
+    \item[Relational Medical Authority] The final piece is in relation to how certain procedures are adhered to and compared to traditional medical settings. Being able to compare feedback and work with someone who can be held responsible for actions or follow-up questions as a result of an app's diagnosis were important to respondents.
+\end{description}
+
+In general, this is quite a strong article. It finds many of the pain points of using AISC services and offers solutions or guidance to developers to improve their apps. The paper seems limited by its demographic. As the respondents were recruited through social media in a fairly young age bracket, they would all have strong technical literacy skills thus biasing their responses. Future work could include respondents from older age brackets who could speak to the usability of these apps for more senior citizens. Additionally, participants outside of China may have a different perspective.
+
+
+\newpage
+\bibliographystyle{apalike}
+\bibliography{bibliography}
+\end{document}
