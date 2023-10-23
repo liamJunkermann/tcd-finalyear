@@ -1,1 +1,8 @@
 node_modules/
+**.aux
+*.log
+*.out
+*.synctex.gz*
+*.mov
+*.tar.gz
+.env
