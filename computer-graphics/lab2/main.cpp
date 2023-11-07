@@ -55,7 +55,7 @@ void linkCurrentBufferToShader(GLuint shaderProgramID, GLuint numVertices)
 }
 #pragma endregion VBO_FUNCTIONS
 
-void setup()
+void init()
 {
     // vertex setup
     GLfloat vertices0[] = {-1.0f, -1.0f, 0.0f,
@@ -130,7 +130,7 @@ int main()
         return -1;
     }
 
-    setup();
+    init();
     while (!glfwWindowShouldClose(window))
     {
         display(window);
