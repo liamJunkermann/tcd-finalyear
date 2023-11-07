@@ -1,0 +1,4 @@
+CoinEMDocs/
+make_gamma.dSYM/
+*.o
+make_gamma
