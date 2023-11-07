@@ -78,7 +78,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSU44051 Human Factors Lecture Notes/Scenario Assignment Feedback.md",
+                "file": "CSU44099 Final Year Project Notes/Recruitment Email.md",
                 "mode": "source",
                 "source": false
               }
@@ -151,7 +151,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSU44051 Human Factors Lecture Notes/Scenario Assignment Feedback.md",
+                "file": "CSU44099 Final Year Project Notes/Recruitment Email.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -168,7 +168,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSU44051 Human Factors Lecture Notes/Scenario Assignment Feedback.md",
+                "file": "CSU44099 Final Year Project Notes/Recruitment Email.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -191,7 +191,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSU44051 Human Factors Lecture Notes/Scenario Assignment Feedback.md"
+                "file": "CSU44099 Final Year Project Notes/Recruitment Email.md"
               }
             }
           },
@@ -225,11 +225,15 @@
   },
   "active": "088ca26aaba1d07b",
   "lastOpenFiles": [
-    "CSU44099 Final Year Project Notes/Personal Project - ML to Go fast.md",
+    "Assignments/Computer Vision Assignment 1.md",
+    "CSU44099 Final Year Project Notes/Recruitment Email.md",
+    "CSU44099 Final Year Project Notes/(Re)Learning Machine Learning.md",
+    "Assignments/Computer Vision Week 1.md",
+    "CSU44053 Computer Vision.md",
     "CSU44051 Human Factors Lecture Notes/Scenario Assignment Feedback.md",
+    "CSU44099 Final Year Project Notes/Personal Project - ML to Go fast.md",
     "CSU44099 Final Year Project Notes/Literature.md",
     "CSU44099 Final Year Project Notes/Literature/A_Systems_Model_of_the_Effects_of_Training_on_Physical_Performance.pdf",
-    "CSU44099 Final Year Project Notes/(Re)Learning Machine Learning.md",
     "Assignments/Lucy Hederman Meeting Prep.md",
     "CSU44099 Final Year Project Notes/SupervisorMeetings/Oct 4 Meeting.md",
     "CSU44099 Final Year Project Notes/Literature/ModellingAthleticTrainingAndPerformance.pdf",
@@ -257,10 +261,6 @@
     "CSU44052 Computer Graphics Lectures/Lecture 1.md",
     "CSU44053 Computer Vision Lecture Notes/Vision Lecture 2.md",
     "CSU44051 Human Factors Lecture Notes/Lecture 3.md",
-    "CSU44051 Human Factors Lecture Notes/Lecture 2.md",
-    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 1.md",
-    "CSU44000 Internet Applications Lecture Notes/Internet Apps Lecture 1.md",
-    "Final Year MOC.md",
     "PastedImages/Pasted image 20230910083628.png"
   ]
 }
