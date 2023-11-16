@@ -4,3 +4,6 @@
 [submodule "final-year-project/final-year-project-writeup"]
 	path = final-year-project/final-year-project-writeup
 	url = git@github.com:liamJunkermann/final-year-project-writeup
+[submodule "final-year-project/data-collector"]
+	path = final-year-project/data-collector
+	url = git@github.com:liamJunkermann/final-year-project-code
