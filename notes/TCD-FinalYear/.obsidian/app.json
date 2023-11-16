@@ -1,1 +1,12 @@
-{}
+{
+  "tabSize": 2,
+  "alwaysUpdateLinks": true,
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  },
+  "focusNewTab": false
+}

@@ -1,0 +1,12 @@
+**.out
+**.aux
+**.lof
+**.log
+**.lot
+**.synctex.gz*
+**.toc
+**.bbl
+**.blg
+**.dvi
+**.fdb_latexmk
+**.fls

@@ -1,0 +1,6 @@
+[submodule "final-year-project-writeup"]
+	path = final-year-project-writeup
+	url = git@github.com:liamJunkermann/final-year-project-writeup
+[submodule "final-year-project/final-year-project-writeup"]
+	path = final-year-project/final-year-project-writeup
+	url = git@github.com:liamJunkermann/final-year-project-writeup

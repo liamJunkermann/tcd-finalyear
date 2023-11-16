@@ -11,8 +11,8 @@ tags:
 # CSU44053 Computer Vision
 
 ## Course Outlines
-- [[Computer Vision Outline]]
-- [[Computer Vision Lectures]]
+- [[CSU44053 Computer Vision Outline]]
+- [[CSU44053 Computer Vision Lectures]]
 
 ## Assignments
 ```dataview

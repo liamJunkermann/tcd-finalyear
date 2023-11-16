@@ -6,7 +6,7 @@ tags:
 code: 
 title:
 ---
-Links: [[Final Year MOC]]
+Links: 
 # <% tp.file.title %>
 
 ## Course Outlines
