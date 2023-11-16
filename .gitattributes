@@ -1,0 +1,9 @@
+computer-vision/labs/OpenCVExample/Media/TableTennis.avi filter=lfs diff=lfs merge=lfs -text
+computer-vision/labs/OpenCVExample/Media/PETS2000_mjpeg.avi filter=lfs diff=lfs merge=lfs -text
+computer-vision/labs/OpenCVExample/Media/Bicycles.avi filter=lfs diff=lfs merge=lfs -text
+computer-vision/labs/OpenCVExample/Media/Bicycles_mjpeg.avi filter=lfs diff=lfs merge=lfs -text
+computer-vision/labs/OpenCVExample/Media/DraughtsGame1.avi filter=lfs diff=lfs merge=lfs -text
+computer-vision/labs/OpenCVExample/Media/DraughtsGame1Output.avi filter=lfs diff=lfs merge=lfs -text
+computer-vision/labs/OpenCVExample/Media/ObjectAbandonmentAndRemoval1.avi filter=lfs diff=lfs merge=lfs -text
+computer-vision/labs/OpenCVExample/Media/ObjectAbandonmentAndRemoval1_mjpeg.avi filter=lfs diff=lfs merge=lfs -text
+computer-vision/labs/OpenCVExample/Media/PETS2000.avi filter=lfs diff=lfs merge=lfs -text
