@@ -1,0 +1,127 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fancyhdr} 
+\usepackage[]{cite}
+\usepackage{lastpage} 
+\usepackage{extramarks} 
+\usepackage{graphicx,color}
+\usepackage{anysize}
+\usepackage{amsmath}
+\usepackage{natbib}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[svgnames]{xcolor}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage[small]{titlesec}
+\usepackage[version=4]{mhchem}
+\usepackage{linegoal}
+\usepackage{subcaption}
+\usepackage{media9}
+
+
+\textwidth=6.5in
+\linespread{1.5} % Line spacing
+\renewcommand{\familydefault}{\sfdefault}
+
+% \titleformat{\section}
+% {\normalfont\bfseries}
+% {\thesection.}{0.75em}{}
+
+\titlespacing{\section}{0pt}{0pt}{0pt}
+
+%% includescalefigure:
+%% \includescalefigure{label}{short caption}{long caption}{scale}{filename}
+%% - includes a figure with a given label, a short caption for the table of contents and a longer caption that describes the figure in some detail and a scale factor 'scale'
+\newcommand{\includescalefigure}[5]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#4\linewidth]{#5}
+\captionsetup{width=.8\linewidth} 
+\caption[#2]{#3}
+\label{#1}
+\end{figure}
+}
+
+\newcommand{\imageinners}[4]{
+\begin{subfigure}{0.4\linewidth}
+\includegraphics[width=\linewidth]{#4}
+\captionsetup{width=.8\linewidth} 
+\caption[#2]{#3}
+\label{#1}
+\end{subfigure}
+}
+
+%% includefigure:
+%% \includefigure{label}{short caption}{long caption}{filename}
+%% - includes a figure with a given label, a short caption for the table of contents and a longer caption that describes the figure in some detail
+\newcommand{\includefigure}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics{#4}
+\captionsetup{width=.8\linewidth} 
+\caption[#2]{#3}
+\label{#1}
+\end{figure}
+}
+
+%%------------------------------------------------
+%% Parameters
+%%------------------------------------------------
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\authorName} % Top left header
+\chead{\moduleCode\ - \assignmentTitle} % Top center header
+\rhead{\authorID} % Top right header
+\lfoot{} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\newcommand{\assignmentTitle}{Sample Exam Question}
+\newcommand{\moduleCode}{CSU44053} 
+\newcommand{\moduleName}{Computer Vision} 
+\newcommand{\authorName}{Liam Junkermann} 
+\newcommand{\authorID}{19300141}
+\newcommand{\reportDate}{November 19, 2023}
+% \renewcommand{\abstractname}{Introduction}
+
+\title{
+    \vspace{-1in}
+    \begin{figure}[!ht]
+    \flushleft
+    \includegraphics[width=0.4\linewidth]{Trinity_RGB_transparent_main.png}
+    \end{figure}
+    \vspace{-0.5cm}
+    \hrulefill \\
+    \vspace{1cm}
+    \textmd{\textbf{\moduleCode\ \moduleName}}\\
+    \textmd{\textbf{\assignmentTitle}}\\
+    {
+        \large
+        \textmd{\authorName\ - \authorID}\\
+        \textmd{\reportDate}\\
+    }
+    \vspace{0.5cm}
+    \hrulefill \\
+}
+\date{}
+\author{}
+\begin{document}
+\section{1. (a) Application Question}
+Firstly, we need to separate a potential sign from the background, this will allow us to consider the contents of a potential sign region in order to confirm it is an emergency exit sign. The easiest way to do this would be to convert the image color data to the HSV colour space to isolate the hue channel. There would be an acceptable hue range selected, this would highlight any green areas of an image. This would produce a masked image containing just potential emergency signs, based on their colour. Contour or Edge detection can then be used to find the main shapes in the green region, we would expect three distinct regions with $\sim 1$ rectangularity and $\sim 1.8$ elongatedness, roughly $0.75-0.9$ rectangularity and $\sim 1.8$ elongatedness, and $\sim 0.5$ rectangularity and roughly $1-1.5$ elongatedness for the door, arrow, and running icons respectively. These values would need to be dialed in for a practical application. If these three regions are found, we can safely identify the greater region as an emergency exit sign. The output from this application would be a mask image, including only the green region of the emergency exit sign.
+
+\section{1. (b) Compare \& Contrast}
+Each application of Non-Maxima suppression applies the technique slightly differently in order to identify and retain significant features while suppressing less relevant features.
+\begin{description}
+    \item[First derivative edge detection] First derivative edge detection is concerned with the changes in intensity on a gradient. Non-Maxima suppression in this case is applied to gradient magnitudes to keep only the local maxima around along edges in an image. The key feature affected in the application of Non-Maxima suppression in first derivative edge detection is the gradient peaks.
+    \item[SIFT, first stage] In the first step of SIFT, Non-Maxima suppression is applied to key points in the scale space to identify the most prominent ones. This is used for feature matching. 
+    \item[Moravec Corner Detection] For corner detection, differences in direction are the focus, or feature which the technique is concerned with. Instead of intensity changes in a gradient as with first derivative edge detection, non-maxima suppression is applied to local intensity variations in direction to find corners.
+    \item[Hough Transform for circles with unknown radii] In Hough transform for circles where the radius is not known, a 3d accumulator is used where the third dimension is the radius. Each edge point that has been detected votes in the accumulator array for a possible centre. Non-maxima suppression allows the algorithm to highlight the most common votes -- or the most likely centre point -- and reduce the "noise" of any potential outlying points.
+\end{description}
+
+\end{document}
