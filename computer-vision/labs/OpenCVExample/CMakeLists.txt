@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.10)
+project(LJVision)
+find_package(OpenCV REQUIRED)
+add_executable(LJVision main.cpp)
+target_link_libraries(LJVision ${OpenCV_LIBS})
