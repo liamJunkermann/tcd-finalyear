@@ -1,0 +1,279 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+
+\usepackage{fancyhdr} 
+\usepackage{natbib}
+\setcitestyle{authoryear,open={(},close={)}} %Citation-related commands
+\usepackage{lastpage} 
+\usepackage{extramarks} 
+\usepackage{graphicx,color}
+\usepackage{anysize}
+\usepackage{amsmath}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{url}
+\usepackage{listings}
+\usepackage[svgnames]{xcolor}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage[small]{titlesec}
+\usepackage[version=4]{mhchem}
+\usepackage{linegoal}
+\usepackage{subfig}
+\usepackage{enumitem}
+\usepackage{lmodern}
+
+\textwidth=6.5in
+\linespread{1.2} % Line spacing
+\renewcommand{\familydefault}{\sfdefault}
+
+% \titleformat{\section}
+% {\normalfont\bfseries}
+% {\thesection.}{0.75em}{}
+
+\titlespacing{\section}{0pt}{0pt}{0pt}
+
+%% includescalefigure:
+%% \includescalefigure{label}{short caption}{long caption}{scale}{filename}
+%% - includes a figure with a given label, a short caption for the table of contents and a longer caption that describes the figure in some detail and a scale factor 'scale'
+\newcommand{\includescalefigure}[5]{
+\begin{figure}[H]
+\centering
+\includegraphics[width=#4\linewidth]{#5}
+\captionsetup{width=.8\linewidth} 
+\caption[#2]{#3}
+\label{#1}
+\end{figure}
+}
+
+\newcommand{\ciaraincludescalefigure}[5]{
+\begin{figure}[H]
+\centering
+\rotatebox[origin=c]{270}{\includegraphics[width=#4\linewidth]{#5}}
+\captionsetup{width=.8\linewidth} 
+\caption[#2]{#3}
+\label{#1}
+\end{figure}
+}
+\newcommand{\includescalefigurerotate}[6]{
+\begin{figure}[H]
+\centering
+\rotatebox[origin=c]{#6}{\includegraphics[width=#4\linewidth]{#5}}
+\captionsetup{width=.8\linewidth} 
+\caption[#2]{#3}
+\label{#1}
+\end{figure}
+}
+
+%% includefigure:
+%% \includefigure{label}{short caption}{long caption}{filename}
+%% - includes a figure with a given label, a short caption for the table of contents and a longer caption that describes the figure in some detail
+\newcommand{\includefigure}[4]{
+\begin{figure}[H]
+\centering
+\includegraphics{#4}
+\captionsetup{width=.8\linewidth} 
+\caption[#2]{#3}
+\label{#1}
+\end{figure}
+}
+
+%% Setting enumerate for HTAs
+\renewcommand{\labelenumii}{\arabic{enumii}.}
+\renewcommand{\labelenumiii}{\arabic{enumii}.\arabic{enumiii}.}
+\renewcommand{\labelenumiv}{\arabic{enumii}.\arabic{enumiii}.\arabic{enumiv}.}
+
+%%------------------------------------------------
+%% Parameters
+%%------------------------------------------------
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{Group 7} % Top left header
+\chead{\moduleCode\ - \assignmentTitle} % Top center header
+\rhead{\includegraphics[height=18pt]{CB_LOGO.png}} % Top right header
+\lfoot{} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+\newcommand{\assignmentTitle}{Social App Prototyping}
+\newcommand{\moduleCode}{CSU44051} 
+\newcommand{\moduleName}{Human Factors}
+
+\newcommand{\reportDate}{\today}
+% \renewcommand{\abstractname}{Introduction}
+
+\title{
+    \vspace{-1in}
+    \begin{minipage}{\linewidth}
+        \centering
+        $\vcenter{\hbox{\includegraphics[height=2cm]{Trinity_RGB_transparent_main.png}}}$
+        \hspace*{0.5\linewidth}
+        $\vcenter{\hbox{\includegraphics[height=1.5cm]{CB_LOGO.png}}}$
+    \end{minipage}
+    \vspace{-0.5cm}
+    \hrulefill \\
+    \vspace{1cm}
+    \textmd{\textbf{\moduleCode\ \moduleName}}\\
+    \textmd{\textbf{\assignmentTitle}}\\
+    \vspace{0.2cm}
+    \normalsize
+    \textmd{\textbf{Group 7}}\\
+    \textmd{Ciara Lynch 19336403 (CL)}\\
+    \textmd{Davy O’Leary-Fraad 19334296 (DO)}\\
+    \textmd{James Fenlon 19337246 (JF)}\\
+    \textmd{Liam Junkermann 19300141 (LJ)} \\
+    \vspace{0.5cm}
+    \hrulefill \\
+}
+\date{}
+\author{}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\newpage
+\section{Introduction (CL)}
+The application 'Community Builder' envisions a new system that promotes sustainability around waste management and creates an incentive to keep one's local community clean with a reward system. 'Community Builder' facilitates the interaction between business owners and civilians who have a shared concern for the upkeep of their community. One of the hidden benefits of 'Community Builder' is that those in society who struggle to make ends meet can receive free and discounted meals from businesses that opt-in, in exchange for playing a positive role in their community.
+
+\section{Design implications from scenarios and HTAs (DO)}
+After reviewing the scenarios and HTAs, several design implications became apparent. Firstly, we should ensure the app has an intuitive user interface. It should be obvious to users how to view and redeem offers, add themselves to different communities etc.
+Secondly, we should make sure that the app is accessible to a wide range of users. In order to do that integrate language options, diverse visual elements and compatibility with different devices. 
+Furthermore, another feature that could be implemented is a token wallet that allows a user to view how many tokens they have currently, their total tokens earned and their transaction history. 
+Another feature that could be added is a section that provides educational content for users to help further incentivize users to continue helping their local community by collecting rubbish and other sustainable activities.
+A final implication that was gained was that it could be beneficial to add gamification elements to the app to make it more enjoyable for users in the process of completing their tasks. This could include badges, achievements or a point system to further incentivize users. 
+
+\section{Low-fidelity prototypes (CL, DO, JF, LJ)}
+\subsection{Prototypes}
+\subsubsection{Landing page (CL)}
+\ciaraincludescalefigure{fig:landingpage}{Landing Page Paper Prototype}{Low-fidelity paper prototype of the landing page}{1}{prototypes/landingpage.png}
+\autoref{fig:landingpage} shows the landing page of the Community Builder application. This page allows the user to login, if already an existing registered user, or join the Community Builder application by registering. An important design choice that was chosen here was to have a clear and concise landing page. This was done by having a clean design with the login and register buttons being the main focus
+\subsubsection{Login (CL)}
+\ciaraincludescalefigure{fig:loginpage}{Login Page Paper Prototype}{Low-fidelity paper prototype of the login page}{0.9}{prototypes/login.png}
+\autoref{fig:loginpage} shows the login page of the Community Builder application. On this page, the design follows a familiar schematic of the necessary information to log in the registered user. For ease of use, it was decided to add a 'Remember me' functionality for users who want to remain logged in to the Community Builder application. Another design choice that remains consistent throughout the application is the addition of a 'Previous' button so that the user can easily return to the past page
+\subsubsection{Register - Main (CL)}
+\ciaraincludescalefigure{fig:registermain}{Main Register Page Paper Prototype}{Low-fidelity paper prototype of the main register page}{0.9}{prototypes/registermain.png}
+\autoref{fig:registermain} shows the main register page of the Community Builder application. As the Community Builder application accommodates both individual accounts as well as business accounts, there is a separate registration process for both types. This was important due to having the necessary proof of operation of the businesses for legal reasons. 
+\subsubsection{Register - Personal (LJ)}
+\includescalefigure{fig:reg_personal}{Personal Registration Paper Prototype}{Low-fidelity paper prototype of the personal registration page}{1}{prototypes/register_personal.PNG}
+\autoref{fig:reg_personal} shows the user (personal) registration page of the Community Builder application. All of these fields are form-controlled and there is an easy way to return to the home screen if a user does not need to register. The top half of the screen simply informs the user where they are. Being minimal with labels maximises the space for data input without making the page feel cramped.
+\subsubsection{Register - Business (LJ)}
+\includescalefigure{fig:reg_buis}{Business Registration Paper Prototype}{Low-fidelity paper prototype of the business registration page}{0.5}{prototypes/register_business.PNG}
+\autoref{fig:reg_buis} shows the business registration to the Community Builder app.
+This particular paper prototype is quite long. Business registration is quite a bit more complex than standard user registration as more information must be collected from a business. As noted in the diagram, the view is scrollable.
+\subsubsection{Successful Registration (CL)} 
+\ciaraincludescalefigure{fig:successfulregistration}{Successful Registration Page Paper Prototype}{Low-fidelity paper prototype of the successful registration page}{0.9}{prototypes/successfulregistration.png}
+\autoref{fig:successfulregistration} shows the screen that will appear after the successful registration of a user. From the registration process, the user's location is taken into account and a suggestion of the closest community is provided for them to proceed to join. There is also a search bar functionality on this page for users who wish to join locations outside of their registration area.
+\subsubsection{Dashboard (LJ)}
+\includescalefigure{fig:dashboard}{Dashboard Paper Prototype}{Low-fidelity paper prototype of the dashboard page}{1}{prototypes/dashboard.PNG}
+\autoref{fig:dashboard} shows the dashboard view of the application. This view is where the users can see their friends whom they have connected with on the platform, regardless of where their "current community" is. The only engagement tiles the user will see are of shops or friends they have connected with on the app.
+\subsubsection{Community Board (LJ)}
+\includescalefigure{fig:com_board}{Community Board Paper Prototype}{Low-fidelity paper prototype of the community board page}{1}{prototypes/community_board.PNG}
+\autoref{fig:com_board} shows the community board of the the application. This page differs slightly from the dashboard in the content that is displayed. This view shows all engagements from any user in the user's "current community". This way they can engage with new members of their community or new shops they have not discovered or frequented yet.
+
+\subsubsection{Profile (JF)}
+\includescalefigurerotate{fig:profile}{Profile Page Paper Prototype}{Low-fidelity paper prototype of the profile page}{0.8}{"prototypes/Profile Page.jpg"}{180}
+\subsubsection{View Map (JF)}
+\includescalefigurerotate{fig:map}{View Map Page Paper Prototype}{Low-fidelity paper prototype of the view map page}{0.8}{"prototypes/View Map.jpg"}{0}
+\subsubsection{My Communities (JF)}
+\includescalefigurerotate{fig:my_comm}{My Communities Page Paper Prototype}{Low-fidelity paper prototype of the my communities page}{.8}{"prototypes/My Communities.jpg"}{180}
+\subsubsection{Full Image Page (JF)}
+\includescalefigurerotate{fig:image_full}{Full Image Page Paper Prototype}{Low-fidelity paper prototype of the full image page}{1}{"prototypes/Full Image.jpg"}{270}
+\subsubsection{Menu Burger Overlay (JF)}
+\includescalefigurerotate{fig:menu_burger}{Menu Burger Paper Prototype}{Low-fidelity paper prototype of menu burger page}{1}{"prototypes/Menu Overlays.jpg"}{270}
+
+\subsection{Design Explanation and Analysis (LJ) }
+The general design approach of these paper prototypes is quite simple. The target is for the user experience to be as simple and straightforward as possible. All input fields are form-controlled to ensure users are guided through data inputs to avoid common errors. The community and dashboard pages work like many other social media applications so users will have a strong familiarity with the idea and process of liking, commenting, and sharing posts with other users. Buttons are clearly marked and easy to find in order to follow the standards set by other social media apps. Most of the users of this app will be familiar with social media already. The straightforward design prevents any potential heuristic evaluation errors, promoting recognition rather than recall. Most of the screens generated by different team members follow a similar theme. When converting these to high-fidelity prototypes, though, a consistent theme and design language will want to be established. When building high-fidelity prototypes, simplicity and ease of use should remain the focus of design, to reduce the cognitive effort required to navigate and use the app.
+
+\section{High-fidelity prototypes (CL, DO, JF, LF)}
+\subsection{Prototypes}
+\subsubsection{Landing page (DO)}
+\includescalefigure{fig:hf_landing}{Landing Page High-fidelity Prototype}{High-fidelity prototype of the landing page}{0.5}{"figma/Landing PageHF.PNG"}
+\subsubsection{Login (DO)}
+\includescalefigure{fig:hf_login}{Login High-fidelity Prototype}{High-fidelity prototype of the login page}{0.5}{"figma/Login PageHF.PNG"}
+\subsubsection{Register - Main (DO)}
+\includescalefigure{fig:hf_reg_main}{Main Registration High-fidelity Prototype}{High-fidelity prototype of the main registration page}{0.5}{"figma/Register PageHF.PNG"}
+\subsubsection{Register - Personal (DO)}
+\includescalefigure{fig:hf_reg_pers}{Personal Registration High-fidelity Prototype}{High-fidelity prototype of the personal registration page}{0.5}{"figma/Register Page PersonalHF.PNG"}
+
+\subsubsection{Register - Business (JF)}
+\includescalefigure{fig:hf_reg_busi}{Business Registration High-fidelity Prototype}{High-fidelity prototype of the business registration page}{0.25}{"figma/Register Page BusinessHF.PNG"}
+
+\subsubsection{Successful Registration (JF)}
+\includescalefigure{fig:hf_reg_succ}{Successful Registration High-fidelity Prototype}{High-fidelity prototype of the successful registration page}{0.5}{"figma/Successful Registration PageHF.PNG"}
+\subsubsection{Dashboard (JF)}
+\includescalefigure{fig:hf_dash}{Dashboard High-fidelity Prototype}{High-fidelity prototype of the dashboard page}{0.25}{"figma/Dashboard PageHF.PNG"}
+
+\subsubsection{Community Board (DO)}
+\includescalefigure{fig:hf_comm_board}{Community Board High-fidelity Prototype}{High-fidelity prototype of the community board page}{0.25}{"figma/Community Board PageHF.PNG"}
+
+\subsubsection{Profile (JF)}
+\includescalefigure{fig:hf_profile}{Profile High-fidelity Prototype}{High-fidelity prototype of the profile page}{0.5}{"figma/Profile PageHF.PNG"}
+
+\subsubsection{View Map (JF)}
+\includescalefigure{fig:hf_view_map}{Map View High-fidelity Prototype}{High-fidelity prototype of the map view page}{0.4}{"figma/View MapHF.PNG"}
+\subsubsection{My Communities (JF)}
+\includescalefigure{fig:hf_my_comm}{My Communities High-fidelity Prototype}{High-fidelity prototype of the "My Communities" page}{0.5}{"figma/My Communities PageHF.PNG"}
+
+\subsubsection{Image full page (JF)}
+\includescalefigure{fig:hf_full_image}{Full Image High-fidelity Prototype}{High-fidelity prototype of the full image page}{0.5}{"figma/Full Image PageHF.PNG"}
+\subsubsection{Menu Burger Overlay (JF)}
+\includescalefigure{fig:hf_menu}{Menu Burger Overlay High-fidelity Prototype}{High-fidelity prototype of the menu burger overlay}{0.25}{"figma/Menu Burger Overlay - Community BoardHF.PNG"}
+
+\subsection{Interaction flow diagram (JF)}
+\includescalefigure{fig:interaction_flow}{Interaction Flow Diagram}{Screenshot of interaction flow diagram from figma prototypes}{0.95}{"figma/Interactions.png"}
+In the Figma interaction prototype's user journey, we start on a welcoming landing page presenting users with a choice: to log in if they're returning, or to register if they're new. The login interaction is straightforward—enter credentials and proceed to the dashboard, a personalised hub displaying posts from followed accounts, similar to a social media feed tailored to the user's network. In contrast, the registration process is more involved, capturing personal and business details through a series of forms, ensuring a full and one-time profile setup before welcoming the user into the app's community.
+The dashboard is the heart of personal content, while the community board is a broader, public area, filled with posts from the entire community. It's a digital hub where all voices are heard, and all activities shared, reflects people in the community engaging to make the community a better place. Each post on the dashboard and community board can be expanded for a detailed view, displaying deeper engagement with content.
+Profile management is always just a tap away, where personal information, insights, and posts are clearly visible, ensuring the user's digital representation remains accurate and up-to-date to all other users engaging on the profile. A full image page is accessible for a more immersive visual experience, allowing users to view images in their full glory without the constraints of a post's thumbnail preview.
+Navigation is a breeze with the intuitive top burger menu bar, which houses essential navigational anchors like the community board, profile, and more. Each screen features a burger menu icon, revealing an overlay with additional navigational choices, including a location dropdown menu which is a thoughtful design touch accommodating flexibility in the users ability to change the displayed results.
+These interactions are tied together with a coherent visual and navigational flow, which shows an understanding of modern user experience principles, everything happening in expected chronological order. The UI design balances aesthetic appeal with functionality, ensuring users find both comfort and purpose in their various different interactions. This Figma prototype shows a user-centred approach, where each interaction is crafted to facilitate a smooth, intuitive, and engaging user journey within the application.
+
+
+\subsection{Design Explanation and Analysis (CL)}
+When using the paper prototypes (low-fidelity prototypes) as a baseline for the high-fidelity prototypes, there were a lot of aspects that we wanted to improve upon. The first major feature that needed to be tackled was the lack of consistency in the theme of the app due to different individuals designing the different apps in their preferred style. To ensure that this wouldn't occur during the design of the high-fidelity prototypes, better communication was agreed upon for the different design choices. Reflecting back during the initial design process, it would've been beneficial to have discussed further design choices during the initial low-fidelity prototyping phase such as colour palette choices across the application. 
+
+Learning from our previous choices, we focused on assuring that the overall design produced was cohesive as well as all the screens containing clear, concise information that the user needs.
+
+One of the main aspects we wanted to keep when transferring from the low to high-fidelity prototypes was that of a simple and intuitive design. This human-computer interaction (HCI) design choice remained at the front throughout our application to reduce the cognitive expense of the user. 
+
+When designing Community Builder the main human-computer interaction principles that we maintained were consistency, simplicity and visibility. Through brainstorming the in-person aspect of Community Builder our app design choices started to gravitate around computer-supported cooperative work principles that included encouraging face-to-face meetings (through the reward system), regular use of the app, user motivation and aiding collaboration as well as communication between users (the addition of forums). 
+
+Another aspect that was at the forefront of our minds during the design of the interface was the consistency in our theme and Community Builder's presence. We ensured that consistent theming and use of colour and font were incorporated throughout the app so that users would be able to easily recognise the function of buttons and other features. This included blue buttons for confirmation actions and a consistent cream background throughout.
+
+
+\subsubsection{Strengths and weaknesses of the proposed design (CL)}
+A strength that Community Builder has within its design is the simplicity of its UI/UX. Most screens within the app serve a single function so as to not cram the screen space with multiple actions, which can result in difficulty in parsing and make an unintuitive application. This approach allowed us to create an intuitive design with little space for error and frustration with not being able to find the desired feature. By having a focus on simplicity, our design optimised screen flow which resulted in most actions being one click away from the dashboard and any other actions being at most two clicks away.
+
+Another human-computer interaction (HCI) that was a prominent strength in Community Builder's design was visibility throughout the application. All components within the application were separated to remove any confusion as to what belongs on which aspect of the interface. Across Community Builder, a high-contrast theme was employed to ensure readability across the app. 
+
+A weakness that wasn't fully explored during either the low or high-fidelity prototyping stages but we realised would've been a critical addition, was error prevention when executing actions, especially during registration and post-creation. This part of the application design should have been discussed during the high-fidelity prototyping stage, as the design and use of confirmation tick boxes could have been considered. A confirmation tick box would ensure that the user does not proceed through actions by misclicks. This simple addition would have built upon our human-computer interaction (HCI) choice of a consistent and easy-to-use UI/UX.
+\subsubsection{Heuristic evaluation (LJ)}
+This application will be evaluated using Nielsen's heuristics:
+\begin{description}
+    \item[Visibility of system status] Based on the views described a user will have a clear idea of where in the app they are at any point, most screens are labelled. Those that aren't are as detailed views from a larger page. No violations here.
+    \item[Match between system and real world] There is no language used in the app that is meant to mislead or misguide a user. All language is clear and symbols are commonly used in day-to-day life. No violations here.
+    \item[User control and freedom] Users are never restricted in their movement through the app once they are logged in. They are allowed to explore as many views as they would like. No violations here.
+    \item[Consistency and standards] A consistent design language is used across the platform, words are used consistently. No violations here. 
+    \item[Error prevention] The risk of errors is quite low, the largest risk is around login. Evaluating this heuristic will be most effective on a built version of the app where error cases and messages have been developed and handled. No clear violations here.
+    \item[Recognition rather than recall] Auto-complete is used on most fields, fields are clearly marked. No clear violations here.
+    \item[Flexibility and efficiency of use] This will be best evaluated when a minimal viable product has been developed. Specific interest around how swipe interactions work on devices. No violations here.
+    \item[Aesthetic and minimalist design] Design is clean and uncluttered. Ease of use and functionality are of importance. No violations here.
+    \item[Help users recognise, diagnose, and recover from errors] Any significant errors would occur in login or uploading images. Implementation of these features would determine if any violations would occur here.
+    \item[Help and documentation] No documentation but navigation through the application is fairly straightforward. No errors here.
+\end{description}
+
+\section{Reflection on designs (CL)}
+When it came to making a high-fidelity prototype, we used the online tool \href{https://www.figma.com/}{Figma}. \href{https://www.figma.com/}{Figma} was very intuitive to use, and is an industry standard for app design, as a result, we thought it best to learn its functionalities. On Figma, we created a collaborative project so that we could all edit and view together. Having a collaborative board was crucial in the design and development of our application Community Builder so that we could help and give each other input during the different design phases. 
+
+Although our design approach was user-centred, there are still areas in which we could improve. We did not consider users who have visual impairments and some of the issues that they may face when interacting with the Community Builder application. Accessibility was considered with regard to the colour scheme, layout of pages, etc. but there could have been more deliberate design choices put into features such as text-to-speech. Another idea that was thought of in reflection was providing settings that allow the user to change the size of the font on the screen. The use of voice technologies is another area that could have been employed to aid users who have difficulty using mobile phones without speech-to-text features. 
+
+During the high-fidelity prototyping process, tutorials in the form of guided walkthroughs on how to use the Community Builder application were considered as a way to onboard the user to the system. However, when considered we ended up omitting it from the design, even though it is important to note that it may improve the user experience if it was implemented. It was discovered that for many rudimentary actions within applications, there is evidence to suggest that it is more effective for a user to learn through trial and error of the application \citep{Andersen_2012}.
+\section{Conclusion (CL)}
+In conclusion, there are areas for improvement within certain aspects of the design, however, Community Builder as an application stuck to its core design principles set out from the initial low-fidelity prototypes, consistency, visibility and simplicity. Our goal of having a user-centric design creates an application that is easy to use for the user, which as a result allows them to spend more time within their community forms on Community Builder and less time trying to figure out how to work the application. 
+
+\newpage
+\bibliographystyle{abbrvnat}
+\bibliography{refs}
+\end{document}
