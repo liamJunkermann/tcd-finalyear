@@ -1,0 +1,26 @@
+\exam{2021 Paper}{Question 3}
+\begin{tcolorbox}[title=Question]
+  (a) \textbf{[APPLICATION QUESTION]} Using edge detection describe how you would find the road markings (i.e. the white and yellow lines) in a video from a moving camera giving images such as those in the scenes below. Discuss when your approach might give false positives and what you might do to deal with that. Your solution must consist of a series of computer vision techniques and you must provide details of how the techniques will be applied including expected input and output for each technique.
+  \begin{flushright}
+    [25 marks]
+  \end{flushright}
+\end{tcolorbox}
+Backprojection (using reference white + yellow lines) $\rightarrow$ thresholding $\rightarrow$ region classification (handling potential false positives of yellow info boxes)
+\begin{tcolorbox}[title=Question]
+  (b) \textbf{[COMPARE \& CONTRAST QUESTION]} Compare and Contrast
+  \begin{itemize}
+    \item Static Background Model
+    \item Median Background Model
+    \item Gaussian Mixture Model
+  \end{itemize}
+  You must provide a list of differences and similarities between techniques. Each of the differences and similarities must be clearly explained. \textbf{NOTE:} Marks will only be awarded for the detailed comparison of techniques. No marks will be awarded for separate descriptions of techniques.
+  \begin{flushright}
+    [25 marks]
+  \end{flushright}
+\end{tcolorbox}
+Each of the models are used to compare a "background" image to the current frame to highlight differences. The differences between the models are primarily how (or if) they handle changing backgrounds. And how resilient they are to any changes. 
+\begin{description}
+  \item[Static Background Model] This model does not handle changing background conditions at all. It simply selects a background frame and compares each "current frame" to that background frame. This causes issues when analysing CCTV for example because lighting conditions may change, or there may be background objects which do not remain static (eg. trees swaying, water rippling).
+  \item[Median Background Model] This model uses the last $k$ frames as a set, and then for each pixel finds the median histogram value. The current frame compares each pixel to the median histogram value to then classify changed pixels. This model is still not resilient enough for moving background items, but can handle changes in background colour (like changing lighting conditions) where the static model fails.
+  \item[Gaussian Mixture Model] This model is able to be resilient to moving background items. This builds a histogram distribution for the historical pixel data for each pixel. It is the most computationally expensive but due to modelling each pixel and the change in each pixel it is most effectively able to extract out the background despite changing background conditions and, curcially, moving background objects like trees swaying in the wind or water rippling.
+\end{description}
