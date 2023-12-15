@@ -152,6 +152,7 @@
     <ClCompile Include="EBO.h" />
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="ShaderClass.cpp" />
     <ClCompile Include="stb.cpp" />
     <ClCompile Include="texture.cpp" />
@@ -167,6 +168,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
+    <ClInclude Include="Mesh.h" />
     <ClInclude Include="shaderClass.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="VAO.h" />
@@ -174,6 +176,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="brick.png" />
+    <Image Include="planks.png" />
+    <Image Include="planksSpec.png" />
     <Image Include="popcat.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
