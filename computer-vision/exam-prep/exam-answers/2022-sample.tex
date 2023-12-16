@@ -1,0 +1,109 @@
+\exam{2022 Sample}{Question 1}
+\begin{tcolorbox}[title=Question]
+  (a) \textbf{[APPLICATION QUESTION]} Describe two approaches to the location of the target in the images below as follows: (1) using edge detection and (2) using region detection. For each approach, your solution must consist of series of computer vision techniques and you must provide details of how the techniques will be applied including expected input and output for each technique.
+  {\begin{flushright}
+    [35 marks]
+  \end{flushright}}
+\end{tcolorbox}
+\begin{description}
+  \item[Edge detection] Given the images are already in grayscale, there need not be any changes to the colour space. The first step is to apply a light Gaussian blur, this will prevent any interference from any noise, or colour aberrations. Once the blur has been applied we can use an edge detection technique. One technique which could be applied is Hough Transform for Circles. Given there are three concentric circles this could work quite effectively, we just want to find the largest circle in the image. Looking ahead to the next question though, this might not be the most effective way to solve this problem as Hough Transform is quite computationally expensive and relatively slow.
+  
+  A more effective solution would be using Canny Edge Detection. This should produce an edge map with the three concentric circles, and potentially the numbers outlined. Next, we will find the contours from the edge map using contour segmentation techniques, such as Boundary Chain Codes. Finally, to identify the location of the target, we can place a bounding box around the contours that have been found (we can select the longest contour if we want to highlight specifically the target), then use this bounding box to find the center of the target.
+  \item[Region Detection] The first step is to once again apply a light Gaussian blur. This will limit the impact any noise or colour aberrations has on the analysis of the image. Next, we can do some connected component analysis on the blurred image to generate contours for potential regions. This will ideally output a region containing at the very least the outside ring of the target. A bounding box can be placed around this and the centre of the box treated as the centre location of the target.
+\end{description}
+
+\begin{tcolorbox}[title=Question]
+  (b) \textbf{[APPLICATION QUESTION]} Given a video of a (shooting) target (sample frames shown above) taken from a static camera, describe how you would locate the target and score any shots which appear on the target. Your solution must consist of a series of computer vision techniques and you must provide details of how the techniques will be applied including expected input and output for each technique.
+  \begin{flushright}
+    [15 marks]
+  \end{flushright}
+\end{tcolorbox}
+To the naked eye it is clear the two frames shown are different, getting a computer to recognise this is a different story. Given the background of this scene (the target) remains the same throughout the video, we can simply compare the current frame to the background frame (the picture on the left), to find any differences (holes). The difference image will show the changed pixels, which will ideally be our scored shots. We will threshold that difference image, anything that isn't black we want to keep. This will generate regions we can create contours from, count the contours and extrapolate out the running tally of scored shots.
+
+
+\newpage
+\exam{2022 Sample}{Question 2}
+\begin{tcolorbox}[title=Question]
+  (a) \textbf{[COMPARE \& CONTRAST QUESTION]} Compare and Contrast:
+  \begin{itemize}
+    \item tracking using SIFT
+    \item tracking using mean shift
+  \end{itemize}
+  Also comment on which technique would be more appropriate for tracking the moving objects in the road scene below. You must provide a list of differences and similarities between techniques. Each of the differences and similarities must be clearly explained. \textbf{NOTE:} Marks will only be awarded for the detailed comparison of techniques. No marks will be awarded for separate descriptions of techniques.
+  \begin{flushright}
+    [30 marks]
+  \end{flushright}
+\end{tcolorbox}
+
+\begin{tcolorbox}[title=Question]
+  (b) \textbf{[APPLICATION QUESTION]} One of the problems with tracking is locating the objects to track. Given a video of a road scene like that shown above describe how you would locate individual moving objects (which could then be tracked). Your solution must consist of a series of computer vision techniques and you must provide details of how the techniques will be applied including expected input and output for each technique.
+  \begin{flushright}
+    [20 marks]
+  \end{flushright}
+\end{tcolorbox}
+
+\newpage
+\exam{2022 Sample}{Question 3}
+\begin{tcolorbox}[title=Question]
+  (a) \textbf{[APPLICATION QUESTION]} Using back-projection (and other techniques) describe how you could locate the square blue signs in the image below and how you could transform them to a standard-size square image. Your solution must consist of a series of computer vision techniques and you must provide details of how the techniques will be applied including expected input and output for each technique.
+  \begin{flushright}
+    [25 marks]
+  \end{flushright}
+\end{tcolorbox}
+1. Reference image creation.
+\begin{description}
+  \item[input] Close up, high definition images of the signs
+  \item[process] isolate the signs, convert to HSV and calculate the colour histogram
+  \item[output] histogram representing colour distribution of the sign
+\end{description}
+2. Back-projection detection
+\begin{description}
+  \item[input] Images including signs we want to identify
+  \item[process] convert the images to HSV and reference histograms generated in the last step
+  \item[output] probability map indicating potential sign positions
+\end{description}
+3. Noise reduction and region isolation.
+\begin{description}
+  \item[input] probability map from back-projection
+  \item[process] apply thresholding to probability map and operations to clean up images and identify sign candidates
+  \item[output] a binary image highlighting likely sign regions
+\end{description}
+4. Region analysis
+\begin{description}
+  \item[input] binary image with likely regions
+  \item[process] perform CCA to label and analyse regions
+  \item[output] bounding boxes around regions that match criteria for exit signs 
+\end{description}
+5. Further validation
+\begin{description}
+  \item[input] regions identified in previous step
+  \item[process] Check for presence of white boxes surrounding white character regions. Place bounding box around each box identified.
+  \item[output] final set of verified white box regions 
+\end{description}
+6. Result presentation
+\begin{description}
+  \item[input] original images and verified locations of signs
+  \item[process] extract out regions and stretch/skew to be square if not already.
+  \item[output] original images seperated out to different square signs skewed or stretched to present the boxes as square 
+\end{description}
+Back projection with different photos of the blue boxes (just the blue part) put together as the reference. This will make the back projection resilient to changing lighting conditions/degrees of wear. This will be used to highlight the blue signs in the image.
+
+
+\begin{tcolorbox}[title=Question]
+  (b) \textbf{[COMPARE \& CONTRAST QUESTION]} Compare and Contrast: 
+  \begin{itemize}
+    \item Chamfer Matching
+    \item Statistical Pattern Recognition
+    \item Robust object detection using a cascade of Haar classifiers
+  \end{itemize}
+  You must provide a list of differences and similarities between techniques. Each of the differences and similarities must be clearly explained. \textbf{NOTE:} Marks will only be awarded for the detailed comparison of techniques. No marks will be awarded for separate descriptions of techniques.
+  \begin{flushright}
+    [25 marks]
+  \end{flushright} 
+\end{tcolorbox}
+
+\begin{description}
+  \item[Chamfer Matching] Like Statistical Pattern Recognition and cascade of haar classifiers, Chamfer matching requires some preparation, except in place of a training phase a template is provided. When processing images, chamfer, just like the other two approaches, selects features to consider, although in the case of chamfer, these features tend to just edges which can be compared to the binary template provided to the chamfer matching function. Chamfer Matching can be resilient to basic transformation and scaling differences, but may struggle with rotation given it is effectively a generalized template matching function looking for more or less similar shapes (ie. placement of edges) between the template and a given sub-image. Chamfer matching is quite sensitive to noise or very cluttered scenes, additionally, as images get large chamfer matching gets computationally more expensive due to the growing of distance transform calculations.
+  \item[Statistical Pattern Recognition] Just like the other two, there is a "training" phase for SPR. During this training phase, the statistical model learns how to differentiate between different classes of objects using metrics like area, elongatedness, length to width ratio, rectangularity, concavities \& holes, etc. SPRs resilience to transformations is dependant on what information was provided during the training phase, but given an adequate sample set, SPR should be fairly comprehensive. Finally, the processing of images for SPR is relatively efficient however the training phase may be more expensive as the statistical model classifies and iterates its model.
+  \item[Robust Object detection using a cascade of Haar classifiers] Haar is the most computationally efficient of the three recognition techniques here. Haar cascade object detection was specifically designed for real-time applications. It is trained on a large feature set which is used to generate classifiers for sub-images, because the classifiers are placed in sequence, if one classifier fails, the classifiers which follow are not tested at all, saving on signficant computational expense. Its training phase uses a machine-learning style approach, finding patterns in positive/negative examples rather than trying to ascribe qualities like SPR does for its training set. Because of this use of pattern recognition it can be used fairly robustly through scale, transformation, and rotation -- this can be improved with a training set which includes many scaled and rotated objects. 
+\end{description}

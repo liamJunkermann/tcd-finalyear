@@ -8,84 +8,30 @@
         "type": "tabs",
         "children": [
           {
-            "id": "d2e4b7287a0e4876",
+            "id": "91b14277b788332c",
             "type": "leaf",
-            "pinned": true,
             "state": {
               "type": "markdown",
               "state": {
                 "file": "Final Year MOC.md",
                 "mode": "source",
                 "source": false
-              },
-              "pinned": true
-            }
-          },
-          {
-            "id": "189107fa4914206e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSU44051 Human Factors Lecture Notes/Tutorial 1.md",
-                "mode": "source",
-                "backlinks": true,
-                "source": false
               }
             }
           },
           {
-            "id": "d50f5adf014b33c5",
-            "type": "leaf",
-            "pinned": true,
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSU44099 Final Year Project Notes/Literature.md",
-                "mode": "source",
-                "source": false
-              },
-              "pinned": true
-            }
-          },
-          {
-            "id": "9acb823e1116ede9",
+            "id": "29454b9d10d8ffd2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSU44053 Computer Vision Lecture Notes/Vision Lecture 5.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "7fe1c90c0060e77e",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSU44099 Final Year Project Notes/(Re)Learning Machine Learning.md",
-                "mode": "source",
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "088ca26aaba1d07b",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "CSU44099 Final Year Project Notes/Recruitment Email.md",
+                "file": "CSU44053 Computer Vision Concept Notes/SIFT Steps.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "vertical"
@@ -135,7 +81,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 402.5
+    "width": 402.5,
+    "collapsed": true
   },
   "right": {
     "id": "89995dc4cddbad2e",
@@ -151,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSU44099 Final Year Project Notes/Recruitment Email.md",
+                "file": "Final Year MOC.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -168,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSU44099 Final Year Project Notes/Recruitment Email.md",
+                "file": "Final Year MOC.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -191,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSU44099 Final Year Project Notes/Recruitment Email.md"
+                "file": "Final Year MOC.md"
               }
             }
           },
@@ -223,19 +170,38 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "088ca26aaba1d07b",
+  "active": "91b14277b788332c",
   "lastOpenFiles": [
-    "Assignments/Computer Vision Assignment 1.md",
+    "CSU44053 Computer Vision Concept Notes/Features.md",
+    "CSU44053 Computer Vision Concept Notes/SIFT Steps.md",
+    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 5.md",
+    "CSU44053 Computer Vision Concept Notes/Edges.md",
+    "CSU44053 Computer Vision Concept Notes/Video.md",
+    "CSU44053 Computer Vision Concept Notes/Vision Concept Map.md",
+    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 2.md",
+    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 3.md",
+    "CSU44053 Computer Vision Concept Notes/Geometric Transformations.md",
+    "CSU44053 Computer Vision Concept Notes/Recognition.md",
+    "CSU44053 Computer Vision Concept Notes/Binary Vision.md",
+    "CSU44053 Computer Vision Concept Notes/Colour Images.md",
+    "CSU44053 Computer Vision Concept Notes/Histogram Comparison Methods.md",
+    "CSU44053 Computer Vision Concept Notes/Histograms.md",
+    "CSU44053 Computer Vision Concept Notes/Colour Applications.md",
+    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 1.md",
+    "CSU44099 Final Year Project Notes/DataCollection/Simple Data Collection.md",
+    "CSU44053 Computer Vision Concept Notes",
+    "CSU44099 Final Year Project Notes/SupervisorMeetings/Nov 29 Meeting.md",
+    "CSU44052 Computer Graphics Lectures/Lecture 1.md",
+    "CSU44052 Computer Graphics Lectures/Lecture 2.md",
+    "CSU44099 Final Year Project Notes/DataCollection/Understanding OAuth2.0.md",
+    "Pasted image 20231107142926.png",
     "CSU44099 Final Year Project Notes/Recruitment Email.md",
+    "CSU44099 Final Year Project Notes/DataCollection",
+    "Assignments/Computer Vision Assignment 1.md",
     "CSU44099 Final Year Project Notes/(Re)Learning Machine Learning.md",
     "Assignments/Computer Vision Week 1.md",
     "CSU44053 Computer Vision.md",
-    "CSU44051 Human Factors Lecture Notes/Scenario Assignment Feedback.md",
-    "CSU44099 Final Year Project Notes/Personal Project - ML to Go fast.md",
-    "CSU44099 Final Year Project Notes/Literature.md",
     "CSU44099 Final Year Project Notes/Literature/A_Systems_Model_of_the_Effects_of_Training_on_Physical_Performance.pdf",
-    "Assignments/Lucy Hederman Meeting Prep.md",
-    "CSU44099 Final Year Project Notes/SupervisorMeetings/Oct 4 Meeting.md",
     "CSU44099 Final Year Project Notes/Literature/ModellingAthleticTrainingAndPerformance.pdf",
     "CSU44099 Final Year Project Notes/Literature/Haar2011.pdf",
     "CSU44099 Final Year Project Notes/Literature/TowardsMachineLearningondatafromProfessionalCyclists.pdf",
@@ -243,24 +209,6 @@
     "CSU44099 Final Year Project Notes/Literature/sports-08-00008.pdf",
     "CSU44099 Final Year Project Notes/Literature/Scandinavian Med Sci Sports - 2004 - Seiler.pdf",
     "CSU44099 Final Year Project Notes/Literature/s40798-022-00426-x.pdf",
-    "CSU44099 Final Year Project Notes/Literature/polarized_training_is_not_optimal_for_endurance.17.pdf",
-    "CSU44099 Final Year Project Notes/Literature/perf-training-monitoring-rowing.pdf",
-    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 4.md",
-    "CSU44051 Human Factors Lecture Notes/Tutorial 2.md",
-    "CSU44099 Final Year Project Notes/Data Management.md",
-    "CSU44099 Final Year Project Notes/Data Collection.md",
-    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 5.md",
-    "CSU44053 Computer Vision Lecture Notes/Edges.md",
-    "CSU44051 Human Factors Lecture Notes/The Group Food Delivery HTA.md",
-    "CSU44051 Human Factors Lecture Notes/Tutorial 1.md",
-    "CSU44051 Human Factors Lecture Notes/The Group Takeaway Ordering Dilemma.md",
-    "CSU44099 Final Year Project Notes/Project Options.md",
-    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 3.md",
-    "CSU44062 Advanced Computational Linguistics Lecture Notes/Lecture 1.md",
-    "CSU44052 Computer Graphics Lectures/Lecture 2.md",
-    "CSU44052 Computer Graphics Lectures/Lecture 1.md",
-    "CSU44053 Computer Vision Lecture Notes/Vision Lecture 2.md",
-    "CSU44051 Human Factors Lecture Notes/Lecture 3.md",
     "PastedImages/Pasted image 20230910083628.png"
   ]
 }

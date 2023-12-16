@@ -1,0 +1,56 @@
+\documentclass[a4paper,10pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+%% Bibliographical stuff
+\usepackage[]{cite}
+%% Document size
+% include showframe as an option if you want to see the boxes
+\usepackage[a4paper,top=1cm,bottom=1cm,left=1cm,right=1cm,headheight=16pt]{geometry}
+\setlength{\marginparwidth}{2cm}
+%% Useful packages
+\usepackage{amsmath}
+\usepackage[autostyle=true]{csquotes} % Required to generate language-dependent quotes in the bibliography
+\usepackage[pdftex]{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{hyperxmp}
+\usepackage{caption} % if no caption, no colon
+\usepackage{sfmath} %use sans-serif in the maths sections too
+\usepackage[parfill]{parskip}    % Begin paragraphs with an empty line rather than an indent
+\usepackage{setspace} % to permit one-and-a-half or double spacing
+\usepackage{enumerate} % fancy enumerations like (i) (ii) or (a) (b) and suchlike
+\usepackage{booktabs} % To thicken table lines
+\usepackage{fancyhdr}
+\usepackage{xcolor} % to get TCD colour on headings
+\usepackage{lmodern}
+\usepackage{tcolorbox}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{color}
+% \numberwithin{equation}{chapter} %HS edit for (chapter.equation)
+\pagestyle{empty} 
+
+\definecolor{tcd_blue}{RGB}{5, 105, 185}
+\renewcommand{\familydefault}{\sfdefault} %use the sans-serif font as default
+
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\normalsize\bfseries}{\thesection.}{1em}{}
+\newcommand{\authorname}{Liam Junkermann}
+\newcommand{\deadline}{April 2024}
+
+\newcommand{\signatureLine}[3]{
+    \vspace{1cm}
+    Signed: \rule{6cm}{1pt} \hspace{3cm}Date: #3\\
+    \hspace*{0mm}\phantom{Signed: }#1\\
+    \hspace*{0mm}\phantom{Signed: }#2
+}
+
+\begin{document}
+
+\include{info-sheet/info-sheet}
+\include{consent-form/consent-form}
+
+\end{document}

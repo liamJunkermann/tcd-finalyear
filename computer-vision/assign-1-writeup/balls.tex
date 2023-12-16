@@ -1,4 +1,53 @@
 \section{Finding Balls}
 \subsection{Theory}
+The balls are the easiest part of this assignment. There are three main ways to identify the table tennis balls.
+
+\begin{description}
+    \item[Colour-based Segmentation] This method uses the known colour value of the ball to determine where the ball is. This solution is quite quick and computationally cheap, however, it is susceptible to changes in light. It also requires the system to know the exact colour of a ball to work.
+    \item[Contour Detection] Contour detection can be used to determine objects that might be table tennis balls. The final check for if a table tennis ball is present is to test circularity. Regardless of the angle at which a given image is taken, a table tennis ball will present as circular, allowing circularity to be used to determine which ball is the table tennis ball.  This method may be sensitive to noise but it is a good option. Additionally, dialling in the threshold value is difficult. Depending on lighting the ball may be only partially contoured, the text on the ball can also cause issues.
+    \item[Edge Detection] Edge detection can be used to highlight contours and boundaries in an image. As the ball will generally contrast against the background, something which people need in order to play table tennis, it is safe to assume edge detection will perform well due to the changes in colour between the ball and the background. 
+\end{description}
+
 \subsection{Results \& Illustrations}
+Contour detection and edge detection were tested to identify the balls. Both implementations used the same initial preprocessing. Images were converted to grayscale and a Guassian Blur was applied. The blur was applied to reduce noise in the converted images, doing much of the work to reduce false positives due to glare or reflections in the photographs.
+
+Contour detection did not work as well as edge detection, issues included unideal lighting conditions and in one case the text on the ball. Contour detection also missed the orange balls entirely, only highlighting the nearly white portions of the ball.  In most cases, the contour detection failed to highlight the entire ball. The contouring initially produced a binary image which contained many more features, such as bright spots on the table, lines on the table, and in some cases the bright spots on the handle of the paddle. A minimum circularity test was added in order to rule out any classified features which could not be balls. The test did not look for entirely circular regions because of the aforementioned discrepancies due to inconsistent lighting conditions. 
+
+Examples of unsuccessful contour detection can be found below in ~\autoref{fig:failed-contour}.
+Examples of (mostly) successful contour detection can be found below in~\autoref{fig:success-contour}.
+
+\begin{figure}[H]
+    \centering
+    \imageinners{fig:balls1-contour}{Ball Detection - Balls1}{A mostly successful detection of a ball: Balls1}{results/balls1-contourdetection.png}
+    \hfill
+    \imageinners{balls2-contour}{Ball Detection - Balls2}{Partial detection - Text error: Balls2}{results/balls2-contourdetection.png}
+    \hfill
+    \imageinners{balls6-contour}{Ball Detection - Balls6}{A successful detection of a ball: Balls6}{results/balls6-contourdetection.png}
+    \caption{(Semi) Successful Contour Detections}
+    \label{fig:success-contour}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+        \imageinners{balls8-contour}{Ball Detection - Balls8}{Unsuccessful ball detection (and misclassification): Balls8}{results/balls8-contourdetection.png}
+    \hfill
+        \imageinners{balls9-contour}{Failed ball detection - Balls9}{Entirely failed ball detection: Balls9}{results/balls9-contourdetection.png}
+    \caption{Unsuccessful or Failed Contour Detection}
+    \label{fig:failed-contour}
+\end{figure}
+
+Edge detection, using Hough for Circles, proved far more effective, especially with varying ball colours and lighting conditions. Using Hough for Circles is especially suited for this application because regardless of the angle at which the photo of the table tennis ball is taken, it will be projected as a circle. One issue was tuning the parameters to correctly identify balls of varying sizes across multiple images, but this step was relatively straightforward as the maximum size of a ball was still quite small. Hough results can be found in~\autoref{fig:hough-circles} and compared with the results from Contouring (\ref{fig:success-contour}, \ref{fig:failed-contour}).
+
+\begin{figure}[H]
+    \centering
+    \imageinners{balls2-hough}{Ball Detection - Balls2}{Ball detection with Hough for Circles: Balls2}{results/balls2-hough.png}
+    \imageinners{balls6-hough}{Ball Detection - Balls6}{Ball detection with Hough for Circles: Balls8}{results/balls6-hough.png}
+    \imageinners{balls1-hough}{Ball Detection - Balls1}{Ball detection with Hough for Circles: Balls1}{results/balls1-hough.png}
+    \imageinners{balls8-hough}{Ball Detection - Balls8}{Ball detection with Hough for Circles: Balls6}{results/balls8-hough.png}
+    \imageinners{balls9-hough}{Ball Detection - Balls9}{Ball detection with Hough for Circles: Balls9}{results/balls9-hough.png}
+    \caption{Hough for Circles Results}
+    \label{fig:hough-circles}
+\end{figure}
+
 \subsection{Analysis}
+It is clear Hough for circles was more effective for identifying table tennis balls. It was more resilient to changes in lighting conditions and colour than standard contour detection. As a result of using edge detection, it could separate the ball from the background, even when other objects in the background, such as the table tennis paddle, had similar values when converted to grayscale. Hough for Circles is therefore the chosen way to more consistently determine where the balls are.
