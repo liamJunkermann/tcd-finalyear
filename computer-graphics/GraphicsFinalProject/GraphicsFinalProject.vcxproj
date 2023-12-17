@@ -71,16 +71,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Liam\Documents\college\tcd-finalyear\computer-graphics\GraphicsFinalProject\Libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Liam\Documents\college\tcd-finalyear\computer-graphics\GraphicsFinalProject\Libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>.\Libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>.\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Users\Liam\Documents\college\tcd-finalyear\computer-graphics\GraphicsFinalProject\Libraries\include;$(IncludePath)</IncludePath>
     <LibraryPath>C:\Users\Liam\Documents\college\tcd-finalyear\computer-graphics\GraphicsFinalProject\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Liam\Documents\college\tcd-finalyear\computer-graphics\GraphicsFinalProject\Libraries\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Liam\Documents\college\tcd-finalyear\computer-graphics\GraphicsFinalProject\Libraries\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>.\Libraries\include;$(IncludePath)</IncludePath>
+    <LibraryPath>.\Libraries\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Users\Liam\Documents\college\tcd-finalyear\computer-graphics\GraphicsFinalProject\Libraries\include;$(IncludePath)</IncludePath>
@@ -96,7 +96,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -126,7 +126,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>glfw3.lib;opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp-vc143-mtd.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -153,6 +153,7 @@
     <ClCompile Include="glad.c" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="Model.cpp" />
     <ClCompile Include="ShaderClass.cpp" />
     <ClCompile Include="stb.cpp" />
     <ClCompile Include="texture.cpp" />
@@ -169,6 +170,8 @@
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Model.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="shaderClass.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="VAO.h" />
@@ -179,6 +182,9 @@
     <Image Include="planks.png" />
     <Image Include="planksSpec.png" />
     <Image Include="popcat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="GraphicsFinalProject.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
