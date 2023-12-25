@@ -1,10 +1,24 @@
 #include "VBO.h"
 
-VBO::VBO(std::vector<Vertex>& vertices)
+VBO::VBO(std::vector<BaseVertex>& vertices)
 {
 	glGenBuffers(1, &ID);
 	glBindBuffer(GL_ARRAY_BUFFER, ID);
-	glBufferData(GL_ARRAY_BUFFER, vertices.size()*sizeof(Vertex), vertices.data(), GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size()*sizeof(BaseVertex), vertices.data(), GL_STATIC_DRAW);
+}
+
+VBO::VBO(std::vector<glm::vec3>& vertices)
+{
+	glGenBuffers(1, &ID);
+	glBindBuffer(GL_ARRAY_BUFFER, ID);
+	glBufferData(GL_ARRAY_BUFFER, vertices.size()*sizeof(glm::vec3), vertices.data(), GL_STATIC_DRAW);
+}
+
+VBO::VBO(float vertices[])
+{
+	glGenBuffers(1, &ID);
+	glBindBuffer(GL_ARRAY_BUFFER, ID);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), &vertices, GL_STATIC_DRAW);
 }
 
 void VBO::Bind() {

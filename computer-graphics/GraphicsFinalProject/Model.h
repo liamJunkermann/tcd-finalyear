@@ -1,55 +1,54 @@
-#ifndef MODEL_CLASS_H
-#define MODEL_CLASS_H
+#ifndef CLASS_MODEL_H
+#define CLASS_MODEL_H
 
-#include "Mesh.h"
-#include<json/json.hpp>
+#include<assimp/Importer.hpp>
+#include<assimp/scene.h>
+#include<assimp/postprocess.h>
+#include<stb/stb_image.h>
+#include <map>
 
-using json = nlohmann::json;
+#include"shaderClass.h"
+#include"camera.h"
+#include"Mesh.h"
+#include "animdata.h"
+#include "assimpglmhelpers.h"
+
+using namespace std;
+
 
 class Model {
 public:
-	Model(const char* file);
+	Model(char* path);
+	void Draw(Shader& shader, Camera& camera);
 
-	void Draw(
-		Shader& shader,
-		Camera& camera
-	);
+	auto& GetBoneInfoMap() { return m_BoneInfoMap; };
+	int& GetBoneCount() { return m_BoneCounter; };
 
+	static unsigned int TextureFromFile(const char* path, const string& directory);
 private:
-	const char* file;
-	std::vector<unsigned char> data;
-	json JSON;
+	vector<Mesh> meshes;
+	string directory;
+	vector<Texture> textures_loaded;
 
-	std::vector<Mesh> meshes;
-	std::vector<glm::vec3> translationsMeshes;
-	std::vector<glm::quat> rotationsMeshes;
-	std::vector<glm::vec3> scalesMeshes;
-	std::vector<glm::mat4> matricesMeshes;
+	std::map<string, BoneInfo> m_BoneInfoMap;
+	int m_BoneCounter = 0;
 
-	std::vector<std::string> loadedTexName;
-	std::vector<Texture> loadedTex;
 
-	void loadMesh(unsigned int indMesh);
+	void loadModel(string path);
+	void processNode(aiNode* node, const aiScene* scene);
+	
+	void SetVertexBoneDataToDefault(Vertex& vertex);
+	Mesh processMesh(aiMesh* mesh, const aiScene* scene);
+	
+	void SetVertexBoneData(Vertex& vertex, int boneID, float weight);
+	void ExtractBoneWeightForVertices(std::vector<Vertex>& vertices, aiMesh* mesh, const aiScene* scene);
 
-	void traverseNode(unsigned int nextNode, glm::mat4 matrix = glm::mat4(1.0f));
 
-	std::vector<unsigned char> getData();
-	std::vector<float> getFloats(json accessor);
-	std::vector<GLuint> getIndices(json accessor);
-	std::vector<Texture> getTextures();
+	vector<Texture> loadMaterialTextures(aiMaterial* mat, aiTextureType type,
+		string typeName);
 
-	std::vector<Vertex> assembleVertices
-	(
-		std::vector<glm::vec3> positions,
-		std::vector<glm::vec3> normals,
-		std::vector<glm::vec2> texUVs
-	);
-
-	std::vector<glm::vec2> groupFloatsVec2(std::vector<float> floatVec);
-	std::vector<glm::vec3> groupFloatsVec3(std::vector<float> floatVec);
-	std::vector<glm::vec4> groupFloatsVec4(std::vector<float> floatVec);
 
 
 };
 
-#endif // !MODEL_CLASS_H
+#endif // !CLASS_MODEL_H

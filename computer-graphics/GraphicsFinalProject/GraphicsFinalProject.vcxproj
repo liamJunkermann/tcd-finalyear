@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -148,32 +148,65 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="cube.cpp" />
+    <ClCompile Include="cube.h" />
     <ClCompile Include="EBO.cpp" />
     <ClCompile Include="EBO.h" />
+    <ClCompile Include="floor.cpp" />
     <ClCompile Include="glad.c" />
+    <ClCompile Include="loadTexture.cpp" />
+    <ClCompile Include="loadTexture.h" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mesh.cpp" />
+    <ClCompile Include="mob.cpp" />
     <ClCompile Include="Model.cpp" />
     <ClCompile Include="ShaderClass.cpp" />
+    <ClCompile Include="skybox.cpp" />
     <ClCompile Include="stb.cpp" />
-    <ClCompile Include="texture.cpp" />
+    <ClCompile Include="texture_old.cpp" />
     <ClCompile Include="VAO.cpp" />
     <ClCompile Include="VBO.cpp" />
+    <ClCompile Include="wall.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitignore" />
+    <None Include="floor.fs" />
+    <None Include="floor.vs" />
+    <None Include="backpack.fs" />
+    <None Include="backpack.vs" />
+    <None Include="cube.fs" />
+    <None Include="cube.vs" />
+    <None Include="easy_default.frag" />
     <None Include="default.frag" />
     <None Include="default.vert" />
     <None Include="light.frag" />
     <None Include="light.vert" />
+    <None Include="modelPhong.fs" />
+    <None Include="modelPhong.vs" />
+    <None Include="mulLights.fs" />
+    <None Include="mulLights.vs" />
+    <None Include="quay.fs" />
+    <None Include="quay.vs" />
+    <None Include="skybox.fs" />
+    <None Include="skybox.vs" />
+    <None Include="spire.fs" />
+    <None Include="spire.vs" />
+    <None Include="anim_model.fs" />
+    <None Include="anim_model.vs" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="animation.h" />
+    <ClInclude Include="animator.h" />
+    <ClInclude Include="animdata.h" />
+    <ClInclude Include="assimpglmhelpers.h" />
+    <ClInclude Include="bone.h" />
     <ClInclude Include="camera.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="Model.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="shaderClass.h" />
-    <ClInclude Include="texture.h" />
+    <ClInclude Include="skybox.h" />
+    <ClInclude Include="texture_old.h" />
     <ClInclude Include="VAO.h" />
     <ClInclude Include="VBO.h" />
   </ItemGroup>

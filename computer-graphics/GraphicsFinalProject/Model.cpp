@@ -1,288 +1,230 @@
 #include "Model.h"
 
-Model::Model(const char* file)
+Model::Model(char* path)
 {
-	std::string text = get_file_contents(file);
-	JSON = json::parse(text);
-
-	Model::file = file;
-	data = getData();
-
-	traverseNode(0);
+	//stbi_set_flip_vertically_on_load(true);
+	loadModel(path);
+	//stbi_set_flip_vertically_on_load(false);
 }
 
-void Model::Draw(Shader& shader, Camera& camera)
-{
-	for (unsigned int i = 0; i < meshes.size(); i++) {
-		meshes[i].Mesh::Draw(shader, camera, matricesMeshes[i]);
+void Model::Draw(Shader& shader, Camera& camera) {
+	for (unsigned int i = 0; i < meshes.size(); i++)
+	{
+		meshes[i].Draw(shader, camera);
 	}
 }
 
-void Model::loadMesh(unsigned int indMesh)
+void Model::loadModel(string path)
 {
-	unsigned int posAccInd = JSON["meshes"][indMesh]["primitives"][0]["attributes"]["POSITION"];
-	unsigned int normalAccInd = JSON["meshes"][indMesh]["primitives"][0]["attributes"]["NORMAL"];
-	unsigned int texAccInd = JSON["meshes"][indMesh]["primitives"][0]["attributes"]["TEXCOORD_0"];
-	unsigned int indAccInd = JSON["meshes"][indMesh]["primitives"][0]["indices"];
-	
-	std::vector<float> posVec = getFloats(JSON["accessor"][posAccInd]);
-	std::vector<glm::vec3> positions = groupFloatsVec3(posVec);
-	std::vector<float> normalVec = getFloats(JSON["accessor"][normalAccInd]);
-	std::vector<glm::vec3> normals = groupFloatsVec3(normalVec);
-	std::vector<float> texVec = getFloats(JSON["accessor"][texAccInd]);
-	std::vector<glm::vec2> texUVs = groupFloatsVec2(texVec);
-	
-	std::vector<Vertex> vertices = assembleVertices(positions, normals, texUVs);
-	std::vector<GLuint> indices = getIndices(JSON["accessor"][indAccInd]);
-	std::vector<Texture> textures = getTextures();
+	Assimp::Importer importer;
 
-	meshes.push_back(Mesh(vertices, indices, textures));
+	const aiScene* scene = importer.ReadFile(path, aiProcess_Triangulate | aiProcess_FlipUVs | aiProcess_GenSmoothNormals | aiProcess_CalcTangentSpace);
+
+	if (!scene || scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !scene->mRootNode)
+	{
+		cout << "ERROR::ASSIMP::" << importer.GetErrorString() << endl;
+		return;
+	}
+	directory = path.substr(0, path.find_last_of('/'));
+
+	processNode(scene->mRootNode, scene);
 }
 
-void Model::traverseNode(unsigned int nextNode, glm::mat4 matrix)
+void Model::processNode(aiNode* node, const aiScene* scene)
 {
-	json node = JSON["nodes"][nextNode];
-	
-	glm::vec3 translation = glm::vec3(0.0f, 0.0f, 0.0f);
-	if (node.find("translation") != node.end())
+	// process all the node's meshes (if any)
+	for (unsigned int i = 0; i < node->mNumMeshes; i++)
 	{
-		float transValues[3];
-		for (unsigned int i = 0; i < node["translation"].size(); i++)
-			transValues[i] = (node["translation"][i]);
-		translation = glm::make_vec3(transValues);
+		aiMesh* mesh = scene->mMeshes[node->mMeshes[i]];
+		meshes.push_back(processMesh(mesh, scene));
 	}
-	glm::quat rotation = glm::quat(1.0f, 0.0f, 0.0f, 0.0f);
-	if (node.find("rotation") != node.end())
+	// then do the same for each of its children
+	for (unsigned int i = 0; i < node->mNumChildren; i++)
 	{
-		float rotValues[4] =
+		processNode(node->mChildren[i], scene);
+	}
+}
+
+void Model::SetVertexBoneDataToDefault(Vertex& vertex)
+{
+	for (int i = 0; i < MAX_BONE_INFLUENCE; i++)
+	{
+		vertex.m_BoneIDs[i] = -1;
+		vertex.m_Weights[i] = 0.0f;
+	}
+}
+
+Mesh Model::processMesh(aiMesh* mesh, const aiScene* scene)
+{
+	vector<Vertex> vertices;
+	vector<unsigned int> indices;
+	vector<Texture> textures;
+
+	for (unsigned int i = 0; i < mesh->mNumVertices; i++)
+	{
+		Vertex vertex;
+		glm::vec3 vector;
+		// process vertex positions, normals and texture coordinates
+		if (mesh->HasPositions()) {
+			const aiVector3D* vp = &(mesh->mVertices[i]);
+			vertex.Position = glm::vec3(vp->x, vp->y, vp->z);
+		}
+		if (mesh->HasNormals()) {
+			const aiVector3D* vn = &(mesh->mNormals[i]);
+			vertex.Normal = glm::vec3(vn->x, vn->y, vn->z);
+		}
+		if (mesh->HasTextureCoords(0)) {
+			const aiVector3D* vt = &(mesh->mTextureCoords[0][i]);
+			vertex.TexCoords = glm::vec2(vt->x, vt->y);
+		}
+		else 
+			vertex.TexCoords = glm::vec2(0.0f, 0.0f);
+
+		vertices.push_back(vertex);
+	}
+	// process indices
+	for (unsigned int i = 0; i < mesh->mNumFaces; i++)
+	{
+		aiFace face = mesh->mFaces[i];
+		for (unsigned int j = 0; j < face.mNumIndices; j++)
+			indices.push_back(face.mIndices[j]);
+	}
+	// process material
+	aiMaterial* material = scene->mMaterials[mesh->mMaterialIndex];
+
+
+	vector<Texture> diffuseMaps = loadMaterialTextures(material, aiTextureType_DIFFUSE, "texture_diffuse");
+	textures.insert(textures.end(), diffuseMaps.begin(), diffuseMaps.end());
+	vector<Texture> specularMaps = loadMaterialTextures(material, aiTextureType_SPECULAR, "texture_specular");
+	textures.insert(textures.end(), specularMaps.begin(), specularMaps.end());
+	std::vector<Texture> normalMaps = loadMaterialTextures(material, aiTextureType_HEIGHT, "texture_normal");
+	textures.insert(textures.end(), normalMaps.begin(), normalMaps.end());
+	std::vector<Texture> heightMaps = loadMaterialTextures(material, aiTextureType_AMBIENT, "texture_height");
+	textures.insert(textures.end(), heightMaps.begin(), heightMaps.end());
+
+
+	ExtractBoneWeightForVertices(vertices, mesh, scene);
+
+	return Mesh(vertices, indices, textures);
+}
+
+void Model::SetVertexBoneData(Vertex& vertex, int boneID, float weight)
+{
+	for (int i = 0; i < MAX_BONE_INFLUENCE; ++i)
+	{
+		if (vertex.m_BoneIDs[i] < 0)
 		{
-			node["rotation"][3],
-			node["rotation"][0],
-			node["rotation"][1],
-			node["rotation"][2]
-		};
-		rotation = glm::make_quat(rotValues);
-	}
-	glm::vec3 scale = glm::vec3(1.0f, 1.0f, 1.0f);
-	if (node.find("scale") != node.end())
-	{
-		float scaleValues[3];
-		for (unsigned int i = 0; i < node["scale"].size(); i++)
-			scaleValues[i] = (node["scale"][i]);
-		scale = glm::make_vec3(scaleValues);
-	}
-	glm::mat4 matNode = glm::mat4(1.0f);
-	if (node.find("matrix") != node.end())
-	{
-		float matValues[16];
-		for (unsigned int i = 0; i < node["matrix"].size(); i++)
-			matValues[i] = (node["matrix"][i]);
-		matNode = glm::make_mat4(matValues);
-	}
-
-	glm::mat4 trans = glm::mat4(1.0f);
-	glm::mat4 rot = glm::mat4(1.0f);
-	glm::mat4 sca = glm::mat4(1.0f);
-
-	trans = glm::translate(trans, translation);
-	rot = glm::mat4_cast(rotation);
-	sca = glm::scale(sca, scale);
-
-	glm::mat4 matNextNode = matrix * matNode * trans * rot * sca;
-
-	if (node.find("mesh") != node.end())
-	{
-		translationsMeshes.push_back(translation);
-		rotationsMeshes.push_back(rotation);
-		scalesMeshes.push_back(scale);
-		matricesMeshes.push_back(matNextNode);
-
-		loadMesh(node["mesh"]);
-	}
-
-	if (node.find("children") != node.end())
-	{
-		for (unsigned int i = 0; i < node["children"].size(); i++)
-			traverseNode(node["children"][i], matNextNode);
+			vertex.m_Weights[i] = weight;
+			vertex.m_BoneIDs[i] = boneID;
+			break;
+		}
 	}
 }
 
-std::vector<unsigned char> Model::getData() {
-	std::string bytesText;
-	std::string uri = JSON["buffers"][0]["uri"];
-
-	std::string fileStr = std::string(file);
-	std::string fileDirectory = fileStr.substr(0, fileStr.find_last_of('/') + 1);
-	bytesText = get_file_contents((fileDirectory + uri).c_str());
-
-	std::vector<unsigned char> data(bytesText.begin(), bytesText.end());
-	return data;
-}
-
-std::vector<float> Model::getFloats(json accessor)
+void Model::ExtractBoneWeightForVertices(std::vector<Vertex>& vertices, aiMesh* mesh, const aiScene* scene)
 {
-	std::vector<float> floatVec;
+	auto& boneInfoMap = m_BoneInfoMap;
+	int& boneCount = m_BoneCounter;
 
-	// Get properties from the accessor
-	unsigned int buffViewInd = accessor.value("bufferView", 1);
-	unsigned int count = accessor["count"];
-	unsigned int accByteOffset = accessor.value("byteOffset", 0);
-	std::string type = accessor["type"];
-
-	// Get properties from the bufferView
-	json bufferView = JSON["bufferViews"][buffViewInd];
-	unsigned int byteOffset = bufferView["byteOffset"];
-
-	// Interpret the type and store it into numPerVert
-	unsigned int numPerVert;
-	if (type == "SCALAR") numPerVert = 1;
-	else if (type == "VEC2") numPerVert = 2;
-	else if (type == "VEC3") numPerVert = 3;
-	else if (type == "VEC4") numPerVert = 4;
-	else throw std::invalid_argument("Type is invalid (not SCALAR, VEC2, VEC3, or VEC4)");
-
-	// Go over all the bytes in the data at the correct place using the properties from above
-	unsigned int beginningOfData = byteOffset + accByteOffset;
-	unsigned int lengthOfData = count * 4 * numPerVert;
-	for (unsigned int i = beginningOfData; i < beginningOfData + lengthOfData; i)
+	for (int boneIndex = 0; boneIndex < mesh->mNumBones; ++boneIndex)
 	{
-		unsigned char bytes[] = { data[i++], data[i++], data[i++], data[i++] };
-		float value;
-		std::memcpy(&value, bytes, sizeof(float));
-		floatVec.push_back(value);
-	}
+		int boneID = -1;
+		std::string boneName = mesh->mBones[boneIndex]->mName.C_Str();
+		if (boneInfoMap.find(boneName) == boneInfoMap.end())
+		{
+			BoneInfo newBoneInfo;
+			newBoneInfo.id = boneCount;
+			newBoneInfo.offset = AssimpGLMHelpers::ConvertMatrixToGLMFormat(mesh->mBones[boneIndex]->mOffsetMatrix);
+			boneInfoMap[boneName] = newBoneInfo;
+			boneID = boneCount;
+			boneCount++;
+		}
+		else
+		{
+			boneID = boneInfoMap[boneName].id;
+		}
+		assert(boneID != -1);
+		auto weights = mesh->mBones[boneIndex]->mWeights;
+		int numWeights = mesh->mBones[boneIndex]->mNumWeights;
 
-	return floatVec;
+		for (int weightIndex = 0; weightIndex < numWeights; ++weightIndex)
+		{
+			int vertexId = weights[weightIndex].mVertexId;
+			float weight = weights[weightIndex].mWeight;
+			assert(vertexId <= vertices.size());
+			SetVertexBoneData(vertices[vertexId], boneID, weight);
+		}
+	}
 }
 
-std::vector<GLuint> Model::getIndices(json accessor)
+vector<Texture> Model::loadMaterialTextures(aiMaterial* mat, aiTextureType type, string typeName)
 {
-	std::vector<GLuint> indices;
-
-	unsigned int buffViewInd = accessor.value("bufferView", 1);
-	unsigned int count = accessor["count"];
-	unsigned int accByteOffset = accessor.value("byteOffset", 0);
-	unsigned int componentType = accessor["componentType"];
-
-	json bufferView = JSON["bufferView"][buffViewInd];
-	unsigned int byteOffset = bufferView["byteOffset"];
-
-	unsigned int beginningOfData = byteOffset + accByteOffset;
-	if (componentType == 5125) {
-		for (unsigned int i = beginningOfData; i < byteOffset + accByteOffset + count * 4; i) {
-			unsigned char bytes[] = { data[i++], data[i++], data[i++], data[i++] };
-			unsigned int value;
-			std::memcpy(&value, bytes, sizeof(unsigned int));
-			indices.push_back((GLuint)value);
-		}
-	}
-	else if (componentType == 5123) {
-		for (unsigned int i = beginningOfData; i < byteOffset + accByteOffset + count * 2; i) {
-			unsigned char bytes[] = { data[i++], data[i++] };
-			unsigned short value;
-			std::memcpy(&value, bytes, sizeof(unsigned short));
-			indices.push_back((GLuint)value);
-		}
-	}
-	else if (componentType == 5122) {
-		for (unsigned int i = beginningOfData; i < byteOffset + accByteOffset + count * 2; i) {
-			unsigned char bytes[] = { data[i++], data[i++] };
-			short value;
-			std::memcpy(&value, bytes, sizeof(short));
-			indices.push_back((GLuint)value);
-		}
-	}
-
-
-	return indices;
-}
-
-std::vector<Texture> Model::getTextures() {
-	std::vector<Texture> textures;
-
-	std::string fileStr = std::string(file);
-	std::string fileDirectory = fileStr.substr(0, fileStr.find_last_of('/') + 1);
-
-	for (unsigned int i = 0; i < JSON["images"].size(); i++)
+	//cout << "trying to get texture type " << typeName << endl;
+	vector<Texture> textures;
+	for (unsigned int i = 0; i < mat->GetTextureCount(type); i++)
 	{
-		std::string texPath = JSON["images"][i]["uri"];
-
+		aiString str;
+		mat->GetTexture(type, i, &str);
+		//cout << "getting texture " << str.C_Str() << endl;
 		bool skip = false;
-		for (unsigned int j = 0; j < loadedTexName.size(); j++)
+		for (unsigned int j = 0; j < textures_loaded.size(); j++)
 		{
-			if (loadedTexName[j] == texPath) {
-				textures.push_back(loadedTex[j]);
+			if (std::strcmp(textures_loaded[j].path.data(), str.C_Str()) == 0)
+			{
+				textures.push_back(textures_loaded[j]);
 				skip = true;
 				break;
 			}
 		}
-
-		if (!skip) {
-			if (texPath.find("baseColor") != std::string::npos) {
-				Texture diffuse = Texture((fileDirectory + texPath).c_str(), "diffuse", loadedTex.size());
-				textures.push_back(diffuse);
-				loadedTex.push_back(diffuse);
-				loadedTexName.push_back(texPath);
-			}
-			else if (texPath.find("metallicRoughness") != std::string::npos) {
-				Texture specular = Texture((fileDirectory + texPath).c_str(), "specular", loadedTex.size());
-				textures.push_back(specular);
-				loadedTex.push_back(specular);
-				loadedTexName.push_back(texPath);
-			}
+		if (!skip)
+		{   // if texture hasn't been loaded already, load it
+			Texture texture;
+			texture.id = TextureFromFile(str.C_Str(), this->directory);
+			texture.type = typeName;
+			texture.path = str.C_Str();
+			textures.push_back(texture);
+			textures_loaded.push_back(texture); // add to loaded textures
 		}
 	}
-
 	return textures;
 }
 
-std::vector<Vertex> Model::assembleVertices(std::vector<glm::vec3> positions, std::vector<glm::vec3> normals, std::vector<glm::vec2> texUVs)
+unsigned int Model::TextureFromFile(const char* path, const string& directory)
 {
-	std::vector<Vertex> vertices;
-	for (int i = 0; i < positions.size(); i++)
+	string filename = string(path);
+	filename = directory + '/' + filename;
+
+	unsigned int textureID;
+	glGenTextures(1, &textureID);
+
+	int width, height, nrComponents;
+	unsigned char* data = stbi_load(filename.c_str(), &width, &height, &nrComponents, 0);
+	if (data)
 	{
-		vertices.push_back(
-			Vertex{
-				positions[i],
-				normals[i],
-				glm::vec3(1.0f, 1.0f, 1.0f),
-				texUVs[i]
-			}
-		);
+		GLenum format;
+		if (nrComponents == 1)
+			format = GL_RED;
+		else if (nrComponents == 3)
+			format = GL_RGB;
+		else if (nrComponents == 4)
+			format = GL_RGBA;
+
+		glBindTexture(GL_TEXTURE_2D, textureID);
+		glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+		glGenerateMipmap(GL_TEXTURE_2D);
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+		stbi_image_free(data);
+	}
+	else
+	{
+		std::cout << "Texture failed to load at path: " << path << std::endl;
+		stbi_image_free(data);
 	}
 
-	return vertices;
-}
-
-std::vector<glm::vec2> Model::groupFloatsVec2(std::vector<float> floatVec)
-{
-	std::vector<glm::vec2> vectors;
-	for (int i = 0; i < floatVec.size(); i)
-	{
-		vectors.push_back(glm::vec2(floatVec[i++], floatVec[i++]));
-	}
-
-	return vectors;
-}
-
-std::vector<glm::vec3> Model::groupFloatsVec3(std::vector<float> floatVec)
-{
-	std::vector<glm::vec3> vectors;
-	for (int i = 0; i < floatVec.size(); i)
-	{
-		vectors.push_back(glm::vec3(floatVec[i++], floatVec[i++], floatVec[i++]));
-	}
-
-	return vectors;
-}
-
-std::vector<glm::vec4> Model::groupFloatsVec4(std::vector<float> floatVec)
-{
-	std::vector<glm::vec4> vectors;
-	for (int i = 0; i < floatVec.size(); i)
-	{
-		vectors.push_back(glm::vec4(floatVec[i++], floatVec[i++], floatVec[i++], floatVec[i++]));
-	}
-
-	return vectors;
+	return textureID;
 }

@@ -5,11 +5,10 @@
 #include<glad/glad.h>
 #include<vector>
 
-struct Vertex
+struct BaseVertex
 {
 	glm::vec3 position;
 	glm::vec3 normal;
-	glm::vec3 color;
 	glm::vec2 texUV;
 };
 
@@ -17,7 +16,9 @@ class VBO
 {
 public:
 	GLuint ID;
-	VBO(std::vector<Vertex>& vertices);
+	VBO(std::vector<BaseVertex>& vertices);
+	VBO(std::vector<glm::vec3>& vertices);
+	VBO(float vertices[]);
 
 	void Bind();
 	void Unbind();

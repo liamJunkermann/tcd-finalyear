@@ -1,77 +1,82 @@
 #include "camera.h"
 
-Camera::Camera(int width, int height, glm::vec3 position) {
-	Camera::width = width;
-	Camera::height = height;
+Camera::Camera(glm::vec3 position, glm::vec3 up, float yaw, float pitch) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
+{
 	Position = position;
+	WorldUp = up;
+	Yaw = yaw;
+	Pitch = pitch;
+	updateCameraVectors();
 }
 
-void Camera::updateMatrix(float FOVdeg, float nearPlane, float farPlane) {
-	glm::mat4 view = glm::mat4(1.0f);
-	glm::mat4 proj = glm::mat4(1.0f);
-
-	view = glm::lookAt(Position, Position + Orientation, Up);
-	proj = glm::perspective(glm::radians(FOVdeg), (float)(width / height), nearPlane, farPlane);
-
-	cameraMatrix = proj * view;
+Camera::Camera(float posX, float posY, float posZ, float upX, float upY, float upZ, float yaw, float pitch) : Front(glm::vec3(0.0f, 0.0f, -1.0f)), MovementSpeed(SPEED), MouseSensitivity(SENSITIVITY), Zoom(ZOOM)
+{
+	Position = glm::vec3(posX, posY, posZ);
+	WorldUp = glm::vec3(upX, upY, upZ);
+	Yaw = yaw;
+	Pitch = pitch;
+	updateCameraVectors();
 }
 
-void Camera::Matrix(Shader& shader, const char* uniform) {
-	glUniformMatrix4fv(glGetUniformLocation(shader.ID, uniform), 1, GL_FALSE, glm::value_ptr(cameraMatrix));
+glm::mat4 Camera::GetViewMatrix()
+{
+	return glm::lookAt(Position, Position+Front, Up);
 }
 
-void Camera::Inputs(GLFWwindow* window) {
-	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
-		Position += speed * Orientation;
-	}
-	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-		Position += speed * -glm::normalize(glm::cross(Orientation, Up));
-	}
-	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-		Position += speed * -Orientation;
-	}
-	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-		Position += speed * glm::normalize(glm::cross(Orientation, Up));
-	}
-	if (glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS) {
-		Position += speed * Up;
-	}
-	if (glfwGetKey(window, GLFW_KEY_LEFT_CONTROL) == GLFW_PRESS) {
-		Position += speed * -Up;
-	}
-	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS) {
-		speed = 0.04f;
-	}else if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_RELEASE) {
-		speed = 0.01f;
-	}
-
-	if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_HIDDEN);
-
-		if (firstClick)
-		{
-			glfwSetCursorPos(window, (width / 2), (height / 2));
-			firstClick = false;
-		}
-
-		double mouseX, mouseY;
-		glfwGetCursorPos(window, &mouseX, &mouseY);
-
-		float rotX = sensitivity * float(mouseY - height / 2) / height;
-		float rotY = sensitivity * float(mouseX - width / 2) / width;
-
-		glm::vec3 newOrientation = glm::rotate(Orientation, glm::radians(-rotX), glm::normalize(glm::cross(Orientation, Up)));
-		if (abs(glm::angle(newOrientation, Up) - glm::radians(90.0f)) <= glm::radians(85.0f))
-		{
-			Orientation = newOrientation;
-		}
-
-		Orientation = glm::rotate(Orientation, glm::radians(-rotY), Up);
-
-		glfwSetCursorPos(window, (width / 2), (height / 2));
-
-	}else if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_RELEASE) {
-		glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
-		firstClick = true;
-	}
+void Camera::ProcessKeyboard(Camera_Movement direction, float deltaTime)
+{
+	float velocity = MovementSpeed * deltaTime;
+	if (direction == FORWARD)
+		Position += Front * velocity;
+	if (direction == BACKWARD)
+		Position -= Front * velocity;
+	if (direction == LEFT)
+		Position -= Right * velocity;
+	if (direction == RIGHT)
+		Position += Right * velocity;
+	if (direction == UP)
+		Position += Up * velocity;
+	if (direction == DOWN)
+		Position -= Up * velocity;
 }
+
+void Camera::ProcessMouseMovements(float xoffset, float yoffset, GLboolean constrainPitch)
+{
+	xoffset *= MouseSensitivity;
+	yoffset *= MouseSensitivity;
+
+	Yaw += xoffset;
+	Pitch += yoffset;
+
+	if (constrainPitch) {
+		if (Pitch > 89.0f)
+			Pitch = 89.0f;
+		if (Pitch < -89.0f)
+			Pitch = -89.0f;
+	}
+
+	updateCameraVectors();
+}
+
+void Camera::ProcessMouseScroll(float yoffset)
+{
+	Zoom -= (float)yoffset;
+	if (Zoom < 1.0f)
+		Zoom = 1.0f;
+	if (Zoom > 45.0f)
+		Zoom = 45.0f;
+}
+
+void Camera::updateCameraVectors()
+{
+	glm::vec3 front;
+	front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
+	front.y = sin(glm::radians(Pitch));
+	front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
+	Front = glm::normalize(front);
+	Right = glm::normalize(glm::cross(Front, WorldUp)); 
+	Up = glm::normalize(glm::cross(Right, Front));
+}
+
+
+
