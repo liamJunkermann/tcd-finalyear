@@ -1,2 +1,6 @@
-assimp/
+**/*.aux
+**/*.log
+**/*.out
+**/*.synctex.gz
+
 DataCollection/
