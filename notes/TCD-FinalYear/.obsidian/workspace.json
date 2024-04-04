@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Final Year MOC.md",
+                "file": "CSU44099 Final Year Project Notes/Literature.md",
                 "mode": "source",
                 "source": false
               }
@@ -81,8 +81,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 402.5,
-    "collapsed": true
+    "width": 402.5
   },
   "right": {
     "id": "89995dc4cddbad2e",
@@ -98,7 +97,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Final Year MOC.md",
+                "file": "CSU44099 Final Year Project Notes/Literature.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +114,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Final Year MOC.md",
+                "file": "CSU44099 Final Year Project Notes/Literature.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +137,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Final Year MOC.md"
+                "file": "CSU44099 Final Year Project Notes/Literature.md"
               }
             }
           },
@@ -148,7 +147,9 @@
             "state": {
               "type": "all-properties",
               "state": {
-                "sortOrder": "frequency"
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
               }
             }
           }
@@ -172,6 +173,16 @@
   },
   "active": "91b14277b788332c",
   "lastOpenFiles": [
+    "CSU44099 Final Year Project Notes/Lecture 1.md",
+    "CSU44099 Final Year Project Notes/Literature.md",
+    "CSU44099 Final Year Project Notes/Data Management.md",
+    "CSU44099 Final Year Project Notes/Data Collection.md",
+    "CSU44099 Final Year Project Notes/(Re)Learning Machine Learning.md",
+    "CSU44099 Final Year Project Notes/SupervisorMeetings/Oct 4 Meeting.md",
+    "CSU44099 Final Year Project Notes/Personal Project - ML to Go fast.md",
+    "CSU44099 Final Year Project Notes/Project Options.md",
+    "CSU44099 Final Year Project.md",
+    "Final Year MOC.md",
     "CSU44053 Computer Vision Concept Notes/Features.md",
     "CSU44053 Computer Vision Concept Notes/SIFT Steps.md",
     "CSU44053 Computer Vision Lecture Notes/Vision Lecture 5.md",
@@ -188,19 +199,9 @@
     "CSU44053 Computer Vision Concept Notes/Histograms.md",
     "CSU44053 Computer Vision Concept Notes/Colour Applications.md",
     "CSU44053 Computer Vision Lecture Notes/Vision Lecture 1.md",
-    "CSU44099 Final Year Project Notes/DataCollection/Simple Data Collection.md",
     "CSU44053 Computer Vision Concept Notes",
-    "CSU44099 Final Year Project Notes/SupervisorMeetings/Nov 29 Meeting.md",
-    "CSU44052 Computer Graphics Lectures/Lecture 1.md",
-    "CSU44052 Computer Graphics Lectures/Lecture 2.md",
-    "CSU44099 Final Year Project Notes/DataCollection/Understanding OAuth2.0.md",
     "Pasted image 20231107142926.png",
-    "CSU44099 Final Year Project Notes/Recruitment Email.md",
     "CSU44099 Final Year Project Notes/DataCollection",
-    "Assignments/Computer Vision Assignment 1.md",
-    "CSU44099 Final Year Project Notes/(Re)Learning Machine Learning.md",
-    "Assignments/Computer Vision Week 1.md",
-    "CSU44053 Computer Vision.md",
     "CSU44099 Final Year Project Notes/Literature/A_Systems_Model_of_the_Effects_of_Training_on_Physical_Performance.pdf",
     "CSU44099 Final Year Project Notes/Literature/ModellingAthleticTrainingAndPerformance.pdf",
     "CSU44099 Final Year Project Notes/Literature/Haar2011.pdf",
