@@ -32,11 +32,12 @@ ___
 [Training Implications: Physiology of Rowing](https://teaching.shu.ac.uk/hwb/sport/techandinnov/showcase0809/daniel_grant/science_training.html)
 [Modelling and prediction of competitive performance in swimming upon neural networks](https://www.tandfonline.com/doi/abs/10.1080/17461390200072201)
 [[Haar2011.pdf|Analysis and prediction of training effects: multivariate time series analysis with artificial neural networks]]
-[Modelling athletic training and performance : a hybrid artificial neural network ensemble approach](https://doi.org/10.26191/vept-f103) - australian phd thesis
+[Modelling athletic training and performance : a hybrid artificial neural network ensemble approach](https://doi.org/10.26191/vept-f103) - Australian PhD thesis
 - Using ANNs to model cycling training
 	- Power-endurance sport, might be able to use the same methods?
 [Modeling and prediction of competitive performance in swimming upon neural networks](https://doi.org/10.1080/17461390200072201)
 [Systems modelling of the relationship between training and performance](https://doi.org/10.2165/00007256-200333140-00003)
+[Estimating an individual’s oxygen uptake during cycling exercise with a recurrent neural network trained from easy-to-obtain inputs: A pilot study](https://bitbucket.org/andrea_zignoli/vo2_regressor/src/master/)
 
 I need to find:
 Librarian email 

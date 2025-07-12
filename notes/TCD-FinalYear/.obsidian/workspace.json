@@ -25,13 +25,14 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "CSU44053 Computer Vision Concept Notes/SIFT Steps.md",
+                "file": "Final Year MOC.md",
                 "mode": "source",
                 "source": false
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -97,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "CSU44099 Final Year Project Notes/Literature.md",
+                "file": "Final Year MOC.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -114,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "CSU44099 Final Year Project Notes/Literature.md",
+                "file": "Final Year MOC.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -137,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "CSU44099 Final Year Project Notes/Literature.md"
+                "file": "Final Year MOC.md"
               }
             }
           },
@@ -171,10 +172,11 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "91b14277b788332c",
+  "active": "29454b9d10d8ffd2",
   "lastOpenFiles": [
-    "CSU44099 Final Year Project Notes/Lecture 1.md",
+    "CSU44053 Computer Vision Concept Notes/SIFT Steps.md",
     "CSU44099 Final Year Project Notes/Literature.md",
+    "CSU44099 Final Year Project Notes/Lecture 1.md",
     "CSU44099 Final Year Project Notes/Data Management.md",
     "CSU44099 Final Year Project Notes/Data Collection.md",
     "CSU44099 Final Year Project Notes/(Re)Learning Machine Learning.md",
@@ -184,7 +186,6 @@
     "CSU44099 Final Year Project.md",
     "Final Year MOC.md",
     "CSU44053 Computer Vision Concept Notes/Features.md",
-    "CSU44053 Computer Vision Concept Notes/SIFT Steps.md",
     "CSU44053 Computer Vision Lecture Notes/Vision Lecture 5.md",
     "CSU44053 Computer Vision Concept Notes/Edges.md",
     "CSU44053 Computer Vision Concept Notes/Video.md",
